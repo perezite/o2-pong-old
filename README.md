@@ -1,2 +1,1 @@
-# o2-pong
-Ping with a simple c!! game library created alongside
+Proof of concept for creating a game library alongside the actual game itself

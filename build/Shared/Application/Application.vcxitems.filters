@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Library">
+      <UniqueIdentifier>{28716e1b-b387-446d-a765-a66f70c97117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\v1">
+      <UniqueIdentifier>{9d621b5d-1f2e-4f9c-b749-51efde511056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\v1\Headers">
+      <UniqueIdentifier>{6a093035-40a9-4d05-8877-0bc31d58b5c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{922defc5-5c06-4be2-8f5d-765ad84a010f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Headers">
+      <UniqueIdentifier>{636bc02d-8be0-4527-9be7-7361a8c4b787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\v2">
+      <UniqueIdentifier>{e13d0ecd-d892-4456-8e7c-307a4abb51f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\v2\Headers">
+      <UniqueIdentifier>{a5b2e68d-2029-4d28-8ec1-ce8aa7bc7c7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.h">
+      <Filter>Library\v2\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
