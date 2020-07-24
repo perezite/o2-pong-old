@@ -10,41 +10,30 @@
     <Filter Include="Library\v1\Headers">
       <UniqueIdentifier>{6a093035-40a9-4d05-8877-0bc31d58b5c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{922defc5-5c06-4be2-8f5d-765ad84a010f}</UniqueIdentifier>
+    <Filter Include="Demos">
+      <UniqueIdentifier>{b5b52a29-b611-40c7-b87a-69e6cb657051}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Headers">
-      <UniqueIdentifier>{636bc02d-8be0-4527-9be7-7361a8c4b787}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\v2">
-      <UniqueIdentifier>{e13d0ecd-d892-4456-8e7c-307a4abb51f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\v2\Headers">
-      <UniqueIdentifier>{a5b2e68d-2029-4d28-8ec1-ce8aa7bc7c7b}</UniqueIdentifier>
+    <Filter Include="Demos\01_Window">
+      <UniqueIdentifier>{a3f01c88-0228-4343-8df1-4c23ddc2a818}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.cpp">
+      <Filter>Demos\01_Window</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.cpp">
-      <Filter>Library\v1</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.cpp">
-      <Filter>Library\v2</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.cpp">
+    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\WindowV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h">
+      <Filter>Demos\01_Window</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\WindowV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.h">
-      <Filter>Library\v2\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.h">
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\Vector2V1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,17 +1,13 @@
-#include "LibraryV2.h"
-#include "OtherLibraryV1.h"
+#include "Window_Demo1.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	v2::Library library;
-	v1::OtherLibrary otherLibrary;
-	
-	library.sayHello();
-	otherLibrary.sayHello();
+	windowDemo1::run();
 
+	cout << "done..." << endl;
 	cin.get();
 
 	return 0;

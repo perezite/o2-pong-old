@@ -15,14 +15,13 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV1.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\LibraryV2.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\OtherLibraryV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Vector2V1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h" />
   </ItemGroup>
 </Project>
