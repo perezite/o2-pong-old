@@ -1,17 +1,30 @@
 #include "WindowV1.h"
+#include "ErrorV1.h"
+#include "VideoV1.h"
 
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
-namespace v1
+namespace o2
 {
-	bool Window::isOpen()
+	namespace v1
 	{
-		return false;
-	}
+		Window::Window(const Vector2i& size, const std::string& title)
+			: _size(size), _title(title)
+		{
+			Video::ensureInit();
+		}
 
-	void Window::update()
-	{
+		bool Window::isOpen()
+		{
+			return false;
+		}
+
+		void Window::update()
+		{
+		}
 	}
 }
 

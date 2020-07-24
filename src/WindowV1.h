@@ -1,26 +1,29 @@
+#pragma once
+
 #include "Vector2V1.h"
 
 #include <string>
 
-namespace v1 
+namespace o2
 {
-	class Window 
+	namespace v1 
 	{
-		Vector2i _size;
+		class Window
+		{
+			Vector2i _size;
 
-		std::string _title;
+			std::string _title;
 
-	public:
-		Window(const Vector2i size, const std::string& title) 
-			: _size(size), _title(title)
-		{ }
+		public:
+			Window(const Vector2i& size, const std::string& title);
 
-		Window(int w, int h, const std::string& title) : Window(Vector2i(w, h), title)
-		{ }
+			Window(int w, int h, const std::string& title) : Window(Vector2i(w, h), title)
+			{ }
 
-		bool isOpen();
+			bool isOpen();
 
-		void update();
-	};
+			void update();
+		};
+	}
 }
 

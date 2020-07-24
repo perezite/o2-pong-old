@@ -25,6 +25,12 @@
     <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\WindowV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VideoV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h">
@@ -34,6 +40,12 @@
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\Vector2V1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VideoV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ErrorV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>
