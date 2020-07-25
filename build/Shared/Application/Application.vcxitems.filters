@@ -31,6 +31,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h">

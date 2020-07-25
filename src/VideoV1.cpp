@@ -10,7 +10,7 @@ namespace
 {
 	using namespace o2::v1;
 
-	inline void setSdlGlAttribute(SDL_GLattr attribute, int value) 
+	inline void setGlAttribute(SDL_GLattr attribute, int value) 
 	{
 		sdlCheck(SDL_GL_SetAttribute(attribute, value));
 	}
@@ -20,7 +20,7 @@ namespace o2
 {
 	namespace v1
 	{
-		void Video::ensureInit()
+		void Video::init()
 		{
 			sdlCheck(SDL_Init(SDL_INIT_VIDEO));
 
@@ -29,18 +29,30 @@ namespace o2
 			if (imgResult != flags) error(IMG_GetError());
 
 			#ifdef WIN32
-				setSdlGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-				setSdlGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
-				setSdlGlAttribute(SDL_GL_DOUBLEBUFFER, 1);
-				setSdlGlAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
-				setSdlGlAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-			#endif
+				setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+				setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+				setGlAttribute(SDL_GL_DOUBLEBUFFER, 1);
+				setGlAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+				setGlAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+			#elif defined(__ANDROID__)
+				setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+				setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+				setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+				setGlAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+			#endif		
+		}
+
+		Vector2i Video::getDisplaySize()
+		{
+			SDL_DisplayMode displayMode;
+			sdlCheck(SDL_GetDisplayMode(0, 0, &displayMode));
+			return Vector2i(displayMode.w, displayMode.h);
 		}
 
 		#ifdef WIN32
-			void Video::ensureGlew()
+			void Video::initGlew()
 			{
-				glewCheck(glewInit());
+			// 	glewCheck(glewInit());
 			}
 		#endif		
 	}

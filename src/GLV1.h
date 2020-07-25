@@ -18,16 +18,10 @@ namespace o2
 {
 	namespace v1
 	{
-		#ifdef WIN32
-		void glewCheck(GLenum result) 
+		class GL
 		{
-			if (result != GLEW_OK)
-			{
-				std::ostringstream os;
-				os << glewGetErrorString(result);
-				error(os);
-			}
-		}
-		#endif	
+		public:
+			static void init();
+		};	
 	}
 }

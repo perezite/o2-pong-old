@@ -1,6 +1,7 @@
 #pragma once
 
 //#include "GLV1.h"
+#include "Vector2V1.h"
 
 namespace o2
 {
@@ -9,10 +10,12 @@ namespace o2
 		class Video 
 		{
 		public:
-			static void ensureInit();
+			static void init();
+
+			static Vector2i getDisplaySize();
 
 			#ifdef WIN32
-				static void ensureGlew();
+				static void initGlew();
 			#endif			
 		};
 	}

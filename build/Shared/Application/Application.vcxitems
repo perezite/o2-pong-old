@@ -16,6 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VideoV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
