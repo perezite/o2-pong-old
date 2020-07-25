@@ -53,7 +53,7 @@ namespace o2
 					SDL_WINDOWPOS_CENTERED, size.x, size.y, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 			#elif defined(__ANDROID__)
 				v1::Vector2i displaySize = getDisplaySize();
-				return SDL_CreateWindow(title.c_str(), 0, 0, size.x, size.y,
+				return SDL_CreateWindow(title.c_str(), 0, 0, displaySize.x, displaySize.y,
 					SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN | SDL_WINDOW_SHOWN);
 			#endif
 		}

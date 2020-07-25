@@ -18,7 +18,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VideoV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.cpp" />
@@ -28,7 +27,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Vector2V1.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VideoV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h" />
   </ItemGroup>
