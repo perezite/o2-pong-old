@@ -1,3 +1,7 @@
+#pragma once
+
+//#include "GLV1.h"
+
 namespace o2
 {
 	namespace v1 
@@ -6,6 +10,10 @@ namespace o2
 		{
 		public:
 			static void ensureInit();
+
+			#ifdef WIN32
+				inline static void ensureGlew();
+			#endif			
 		};
 	}
 }

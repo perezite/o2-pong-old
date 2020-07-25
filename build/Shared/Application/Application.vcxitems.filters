@@ -48,5 +48,11 @@
     <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ErrorV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\SDLV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
