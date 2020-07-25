@@ -45,9 +45,5 @@ namespace o2
 
 			exit(0);
 		}
-
-		void error(ostringstream& message) {
-			error(message.str());
-		}
 	}
 }

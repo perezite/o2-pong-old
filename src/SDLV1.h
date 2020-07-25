@@ -21,7 +21,7 @@ namespace o2
 
 		inline int sdlCheck(int resultCode)
 		{
-			if (resultCode < 0) 
+			if (resultCode < 0)
 				error(SDL_GetError());
 
 			return resultCode;

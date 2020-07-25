@@ -54,7 +54,7 @@ namespace o2
 			#elif defined(__ANDROID__)
 				v1::Vector2i displaySize = getDisplaySize();
 				return SDL_CreateWindow(title.c_str(), 0, 0, displaySize.x, displaySize.y,
-					SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN | SDL_WINDOW_SHOWN);
+					SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN);
 			#endif
 		}
 
@@ -62,6 +62,5 @@ namespace o2
 		{
 			return sdlCheck(SDL_GL_CreateContext(sdlWindow));
 		}
-
 	}
 }

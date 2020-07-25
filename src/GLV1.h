@@ -12,7 +12,12 @@
 #endif 
 
 #include <sstream>
-using namespace std;
+
+#if defined(_DEBUG) && !defined(GL_DISABLE_CHECKS)
+	#define GL_CHECK(cmd) do { cmd; o2::v1::priv::glCheck( #cmd, __FILE__, __LINE__); } while (false)
+#else
+	#define GL_CHECK(cmd) cmd
+#endif
 
 namespace o2
 {
@@ -22,6 +27,11 @@ namespace o2
 		{
 		public:
 			static void init();
-		};	
+		};
+
+		namespace priv
+		{
+			void glCheck(const char* command, const char* file, unsigned int line);
+		}
 	}
 }
