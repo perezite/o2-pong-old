@@ -22,17 +22,16 @@ namespace o2
 				SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
 					size.x, size.y, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 			sdlCheck(sdlWindow);
-			SDL_GLContext glContext = SDL_GL_CreateContext(sdlWindow);
-			sdlCheck(glContext);
+			sdlCheck(SDL_GL_CreateContext(sdlWindow));
 
 			#ifdef WIN32
-				//Video::ensureGlew();
+				Video::ensureGlew();
 			#endif
 		}
 
 		bool Window::isOpen()
 		{
-			return false;
+			return true;
 		}
 
 		void Window::update()

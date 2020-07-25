@@ -12,7 +12,7 @@ namespace o2
 			static void ensureInit();
 
 			#ifdef WIN32
-				inline static void ensureGlew();
+				static void ensureGlew();
 			#endif			
 		};
 	}

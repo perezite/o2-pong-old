@@ -12,7 +12,7 @@ namespace
 
 	inline void setSdlGlAttribute(SDL_GLattr attribute, int value) 
 	{
-		sdlCheck(SDL_GL_SetAttribute(attribute, value) == 0);
+		sdlCheck(SDL_GL_SetAttribute(attribute, value));
 	}
 }
 
@@ -22,7 +22,7 @@ namespace o2
 	{
 		void Video::ensureInit()
 		{
-			sdlCheck(SDL_Init(SDL_INIT_VIDEO) == 0);
+			sdlCheck(SDL_Init(SDL_INIT_VIDEO));
 
 			int flags = IMG_INIT_PNG && IMG_INIT_JPG;
 			int imgResult = IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG) & flags;
@@ -38,7 +38,7 @@ namespace o2
 		}
 
 		#ifdef WIN32
-			inline void Video::ensureGlew()
+			void Video::ensureGlew()
 			{
 				glewCheck(glewInit());
 			}
