@@ -21,5 +21,6 @@ namespace o2
 		};
 
 		typedef Vector2<int> Vector2i;
+		typedef Vector2<float> Vector2f;
 	}
 }

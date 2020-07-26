@@ -14,7 +14,7 @@ namespace o2
 			SDL::init();
 			_sdlWindow = SDL::createWindow(size, title);
 			_windowId = sdlCheck(SDL_GetWindowID(_sdlWindow));
-			SDL::createGlContext(_sdlWindow);
+			SDL::createGLContext(_sdlWindow);
 			GL::init();
 		}
 
@@ -33,7 +33,7 @@ namespace o2
 		{
 			Events::update();
 			
-			if (Events::hasSdlCloseEvent(_windowId))
+			if (Events::hasSDLCloseEvent(_windowId))
 				_isOpen = false;
 		}
 
@@ -41,6 +41,11 @@ namespace o2
 		{
 			GL_CHECK(glClearColor(color.r, color.g, color.b, color.a));
 			GL_CHECK(glClear(GL_COLOR_BUFFER_BIT));
+		}
+
+		void Window::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType)
+		{
+			_renderer.draw(vertices, primitiveType);
 		}
 
 		void Window::display()

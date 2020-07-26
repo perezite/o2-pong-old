@@ -58,7 +58,7 @@ namespace o2
 			#endif
 		}
 
-		SDL_GLContext SDL::createGlContext(SDL_Window* sdlWindow)
+		SDL_GLContext SDL::createGLContext(SDL_Window* sdlWindow)
 		{
 			return sdlCheck(SDL_GL_CreateContext(sdlWindow));
 		}

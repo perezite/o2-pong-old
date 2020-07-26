@@ -30,7 +30,7 @@ namespace o2
 			}
 		}
 
-		bool Events::hasSdlCloseEvent(Uint32 windowId)
+		bool Events::hasSDLCloseEvent(Uint32 windowId)
 		{
 			return stl::find_any(_closeEvents, windowId);
 		}

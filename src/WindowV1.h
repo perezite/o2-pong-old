@@ -2,9 +2,13 @@
 
 #include "Vector2V1.h"
 #include "ColorV1.h"
+#include "VertexV1.h"
+#include "PrimitiveTypeV1.h"
+#include "RendererV1.h"
 
 #include <SDL2/SDL.h>
 #include <string>
+#include <vector>
 
 namespace o2
 {
@@ -24,6 +28,8 @@ namespace o2
 
 			Uint32 _windowId;
 
+			Renderer _renderer;
+
 		public:
 			Window(const Vector2i& size, const std::string& title);
 
@@ -37,6 +43,8 @@ namespace o2
 			void update();
 
 			void clear(Color color = Color(0, 0, 0, 1));
+
+			void draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType = PrimitiveType::Triangles);
 
 			void display();
 		};

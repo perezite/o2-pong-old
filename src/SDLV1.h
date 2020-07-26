@@ -16,7 +16,7 @@ namespace o2
 
 			static SDL_Window* createWindow(const v1::Vector2i& size, const std::string& title);
 
-			static SDL_GLContext createGlContext(SDL_Window* sdlWindow);
+			static SDL_GLContext createGLContext(SDL_Window* sdlWindow);
 
 			static void quit();
 		};

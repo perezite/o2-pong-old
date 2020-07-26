@@ -14,7 +14,7 @@ namespace o2
 				: r(r_), g(g_), b(b_), a(a_)
 			{ }
 
-			static Color fromRGBA(uchar r = 255, uchar g = 255, uchar b = 255, uchar a = 255)
+			static Color fromRGBA(uchar r = 0, uchar g = 0, uchar b = 0, uchar a = 255)
 			{
 				return Color(r / 255.f, g / 255.f, b / 255.f, a / 255.f);
 			}

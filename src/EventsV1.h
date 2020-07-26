@@ -18,7 +18,7 @@ namespace o2
 		public:
 			static void update();
 
-			static bool hasSdlCloseEvent(Uint32 windowId);
+			static bool hasSDLCloseEvent(Uint32 windowId);
 		};
 	}
 }
