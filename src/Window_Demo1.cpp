@@ -11,7 +11,6 @@ namespace windowDemo1
     {
         v1::Window window(v1::Vector2i(600, 400), "Pong");
 		
-
         while (window.isOpen())
         {
             window.update();

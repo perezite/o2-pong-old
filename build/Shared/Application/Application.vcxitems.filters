@@ -34,6 +34,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
+    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\EventsV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h">
@@ -52,6 +55,12 @@
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\STLV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\EventsV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>

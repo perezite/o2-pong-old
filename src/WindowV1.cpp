@@ -1,5 +1,6 @@
 #include "WindowV1.h"
 #include "ErrorV1.h"
+#include "EventsV1.h"
 #include "SDLV1.h"
 #include "GLV1.h"
 
@@ -12,6 +13,7 @@ namespace o2
 		{
 			SDL::init();
 			_sdlWindow = SDL::createWindow(size, title);
+			_windowId = sdlCheck(SDL_GetWindowID(_sdlWindow));
 			SDL::createGlContext(_sdlWindow);
 			GL::init();
 		}
@@ -29,21 +31,10 @@ namespace o2
 			
 		void Window::update()
 		{
-			SDL_Event sdlEvent;
+			Events::update();
 			
-			while (SDL_PollEvent(&sdlEvent)) {
-				if (sdlEvent.type == SDL_WINDOWEVENT)
-				{
-					if (sdlEvent.window.windowID == SDL_GetWindowID(_sdlWindow))
-					{
-						if (sdlEvent.window.event == SDL_WINDOWEVENT_CLOSE)
-						{
-							_isOpen = false;
-						}
-					}
-				}
-			}
-
+			if (Events::hasSdlCloseEvent(_windowId))
+				_isOpen = false;
 		}
 
 		void Window::display()

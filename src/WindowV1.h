@@ -21,6 +21,8 @@ namespace o2
 
 			SDL_Window* _sdlWindow;
 
+			Uint32 _windowId;
+
 		public:
 			Window(const Vector2i& size, const std::string& title);
 
