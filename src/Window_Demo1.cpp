@@ -10,10 +10,12 @@ namespace windowDemo1
     void demo0()
     {
         v1::Window window(v1::Vector2i(600, 400), "Pong");
+		
 
         while (window.isOpen())
         {
             window.update();
+            window.display();
         }
     }
 

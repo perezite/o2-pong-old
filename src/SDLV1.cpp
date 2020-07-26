@@ -62,5 +62,11 @@ namespace o2
 		{
 			return sdlCheck(SDL_GL_CreateContext(sdlWindow));
 		}
+
+		void SDL::quit()
+		{
+			IMG_Quit();
+			SDL_Quit();
+		}
 	}
 }
