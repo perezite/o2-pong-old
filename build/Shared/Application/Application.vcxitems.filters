@@ -63,5 +63,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\STLV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ColorV1.h">
+      <Filter>Library\v1</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

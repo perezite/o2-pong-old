@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector2V1.h"
+#include "ColorV1.h"
 
 #include <SDL2/SDL.h>
 #include <string>
@@ -34,6 +35,8 @@ namespace o2
 			bool isOpen();
 
 			void update();
+
+			void clear(Color color = Color(0, 0, 0, 1));
 
 			void display();
 		};

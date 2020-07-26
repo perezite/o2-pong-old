@@ -37,6 +37,12 @@ namespace o2
 				_isOpen = false;
 		}
 
+		void Window::clear(Color color)
+		{
+			GL_CHECK(glClearColor(color.r, color.g, color.b, color.a));
+			GL_CHECK(glClear(GL_COLOR_BUFFER_BIT));
+		}
+
 		void Window::display()
 		{
 			SDL_GL_SwapWindow(_sdlWindow);
