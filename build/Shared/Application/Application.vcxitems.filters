@@ -37,10 +37,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\RendererV1.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ShaderV1.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,16 +72,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ColorV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\VertexV1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\PrimitiveTypeV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\RendererV1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\PrimitiveTypeV1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ShaderV1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>
