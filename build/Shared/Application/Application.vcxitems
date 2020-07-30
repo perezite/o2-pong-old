@@ -19,6 +19,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\PrimitiveTypeV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\SDLV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\STLV1.h" />
