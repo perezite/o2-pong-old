@@ -3,6 +3,7 @@
 #include "ColorV1.h"
 #include "VertexV1.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 using namespace o2;
@@ -21,47 +22,140 @@ namespace windowDemo1
         }
     }
 
+	GLuint loadShader1(const char *shaderSrc, GLenum type)
+	{
+		GLuint shader;
+		GLint compiled;
+
+		shader = glCreateShader(type);
+
+		if (shader == 0)
+		{
+			v1::error() << "Error creating shader" << endl;
+			return 0;
+		}
+
+		glShaderSource(shader, 1, &shaderSrc, NULL);
+
+		glCompileShader(shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+
+		if (!compiled)
+		{
+			GLint infoLen = 0;
+			glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
+
+			if (infoLen > 1)
+			{
+				char* infoLog = (char*)malloc(sizeof(char) * infoLen);
+				glGetShaderInfoLog(shader, infoLen, NULL, infoLog);
+				string infoLogString(infoLog);
+				free(infoLog);
+				v1::error() << "Error compiling shader: " << endl << infoLog << endl;
+			}
+
+			glDeleteShader(shader);
+			return 0;
+		}
+		return shader;
+	}
+
+	GLuint init1()
+	{
+		const char vertexShaderCode[] =
+			"attribute vec4 position;			\n"
+			"void main()						\n"
+			"{									\n"
+			"	gl_Position = position;			\n"
+			"}									\n";
+
+		const char fragmentShaderCode[] =
+			"precision mediump float;						\n"
+			"void main()									\n"
+			"{												\n"
+			"	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);	\n"
+			"}												\n";
+
+		GLuint vertexShader;
+		GLuint fragmentShader;
+		GLuint shaderProgram;
+		GLint linked;
+
+		vertexShader = loadShader1(vertexShaderCode, GL_VERTEX_SHADER);
+		fragmentShader = loadShader1(fragmentShaderCode, GL_FRAGMENT_SHADER);
+
+		shaderProgram = glCreateProgram();
+
+		if (shaderProgram == 0)
+			v1::error() << "error creating shader program" << endl;
+
+		glAttachShader(shaderProgram, vertexShader);
+		glAttachShader(shaderProgram, fragmentShader);
+
+		glBindAttribLocation(shaderProgram, 0, "vPosition");
+
+		glLinkProgram(shaderProgram);
+
+		glGetProgramiv(shaderProgram, GL_LINK_STATUS, &linked);
+
+		if (!linked)
+		{
+			GLint infoLen = 0;
+			glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLen);
+
+			if (infoLen > 1)
+			{
+				char* infoLog = (char*)malloc(sizeof(char) * infoLen);
+				glGetProgramInfoLog(shaderProgram, infoLen, NULL, infoLog);
+				glDeleteProgram(shaderProgram);
+				string infoLogString(infoLog);
+				free(infoLog);
+				v1::error() << "Error linking program: " << endl << infoLogString << endl;
+			}
+		}
+
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+		return shaderProgram;
+	}
+
+	void draw1(GLuint shaderProgram)
+	{
+		GLfloat vertices[] = 
+		{ 
+			 0.0f,  0.5f, 0.0f,
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f 
+		};
+
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glUseProgram(shaderProgram);
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+		glEnableVertexAttribArray(0);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
+
+	// https://www.khronos.org/assets/uploads/books/openglr_es_20_programming_guide_sample.pdf
     void demo1()
     {
         v1::Window window(v1::Vector2i(600, 400), "Pong");
-        v1::Color color = v1::Color::fromRGBA(0, 255, 0);
-        vector<v1::Vertex> vertices(5);
-        vertices[0] = v1::Vertex(v1::Vector2f(   0, -200), color);		// 0
-        vertices[1] = v1::Vertex(v1::Vector2f( 200,    0), color);		// 1
-        vertices[2] = v1::Vertex(v1::Vector2f(-200,    0), color);		// 4
-        vertices[3] = v1::Vertex(v1::Vector2f( 100,  200), color);		// 2
-        vertices[4] = v1::Vertex(v1::Vector2f(-100,  200), color);		// 3
+		GLuint shaderProgram = init1();
 
         while (window.isOpen())
         {
             window.update();
-            window.draw(vertices, v1::PrimitiveType::TriangleStrip);
+
+			draw1(shaderProgram);
+
             window.display();
         }
     }
     
-    //void demo2()
-    //{
-    /*v1::Window window(v1::Vector2i(600, 400), "Pong");
-    v1::PolygonShape shape;
-    shape.setPointCount(5);
-    shape[0].position = Vector2i(   0, -200);
-    shape[1].position = Vector2i( 200,    0);
-    shape[2].position = Vector2i( 100,  200);
-    shape[3].position = Vector2i(-100,  200);
-    shape[4].position = Vector2i(-200,    0);
-
-    while (window.isOpen())
-    {
-        window.update();
-        window.draw(shape);
-        window.display();
-    }*/
-    //}
-
     void run()
     {
-        // demo2();
          demo1();
         //demo0();
     }
