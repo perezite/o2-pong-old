@@ -13,17 +13,17 @@
     <Filter Include="Demos">
       <UniqueIdentifier>{b5b52a29-b611-40c7-b87a-69e6cb657051}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demos\01_Window">
+    <Filter Include="Demos\00_Window">
       <UniqueIdentifier>{a3f01c88-0228-4343-8df1-4c23ddc2a818}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demos\02_Renderer">
+    <Filter Include="Demos\01_Renderer">
       <UniqueIdentifier>{27a94316-4365-47e6-b9dd-14363c0edb6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.cpp">
-      <Filter>Demos\01_Window</Filter>
+      <Filter>Demos\00_Window</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.cpp">
       <Filter>Library\v1</Filter>
@@ -47,12 +47,12 @@
       <Filter>Library\v1</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.cpp">
-      <Filter>Demos\02_Renderer</Filter>
+      <Filter>Demos\01_Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Window_Demo1.h">
-      <Filter>Demos\01_Window</Filter>
+      <Filter>Demos\00_Window</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
       <Filter>Library\v1\Headers</Filter>
@@ -91,7 +91,7 @@
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.h">
-      <Filter>Demos\02_Renderer</Filter>
+      <Filter>Demos\01_Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
