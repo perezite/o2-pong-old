@@ -21,111 +21,100 @@ namespace o2
 				"{												\n"
 				"	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);	\n"
 				"}												\n";
-
 		}
 
-		GLuint Shader::loadShader(const std::string & shaderCode, GLenum shaderType)
+		void Shader::compileShader(GLuint shader)
 		{
-			return 0;
-
-				/*
-						GLuint shader;
 			GLint compiled;
 
-			shader = glCreateShader(type);
-
-			if (shader == 0)
-			{
-				v1::error() << "Error creating shader" << endl;
-				return 0;
-			}
-
-			glShaderSource(shader, 1, &shaderSrc, NULL);
-
-			glCompileShader(shader);
-			glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-
+			GL_CHECK(glCompileShader(shader));
+			GL_CHECK(glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled));
 			if (!compiled)
 			{
 				GLint infoLen = 0;
-				glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
+				string infoLog = "No information";
 
+				GL_CHECK(glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen));
 				if (infoLen > 1)
 				{
-					char* infoLog = (char*)malloc(sizeof(char) * infoLen);
-					glGetShaderInfoLog(shader, infoLen, NULL, infoLog);
-					string infoLogString(infoLog);
-					free(infoLog);
-					v1::error() << "Error compiling shader: " << endl << infoLog << endl;
+					char* rawInfoLog = (char*)malloc(sizeof(char) * infoLen);
+					GL_CHECK(glGetShaderInfoLog(shader, infoLen, NULL, rawInfoLog));
+					infoLog = rawInfoLog;
+					free(rawInfoLog);
 				}
 
-				glDeleteShader(shader);
-				return 0;
+				release();
+				error() << "Error compiling shader: " << endl << infoLog << endl;
 			}
+		}
+
+		void Shader::linkProgram()
+		{
+			GLint linked;
+
+			GL_CHECK(glLinkProgram(_shaderProgram));
+			GL_CHECK(glGetProgramiv(_shaderProgram, GL_LINK_STATUS, &linked));
+			if (!linked)
+			{
+				GLint infoLen = 0;
+				string infoLog = "No information";
+
+				GL_CHECK(glGetProgramiv(_shaderProgram, GL_INFO_LOG_LENGTH, &infoLen));
+				if (infoLen > 1)
+				{
+					char* rawInfoLog = (char*)malloc(sizeof(char) * infoLen);
+					GL_CHECK(glGetProgramInfoLog(_shaderProgram, infoLen, NULL, rawInfoLog));
+					infoLog = rawInfoLog;
+					free(rawInfoLog);
+				}
+
+				release();
+				error() << "Error linking shader program: " << endl << infoLog << endl;
+			}
+		}
+
+		void Shader::release()
+		{
+			if (_fragmentShader)
+				GL_CHECK(glDeleteShader(_fragmentShader));
+			if (_vertexShader)
+				GL_CHECK(glDeleteShader(_vertexShader));
+			if (_shaderProgram)
+				GL_CHECK(glDeleteProgram(_shaderProgram));
+		}
+
+
+		GLuint Shader::loadShader(const std::string & shaderCode, GLenum shaderType)
+		{
+			GLuint shader;
+
+			shader = glCreateShader(shaderType);
+			if (!shader)
+				error() << GL::getErrorDescription(glGetError()) << endl;
+
+			const char* rawShaderSource = shaderCode.c_str();
+			GL_CHECK(glShaderSource(shader, 1, &rawShaderSource, NULL));
+
+			compileShader(shader);
+
 			return shader;
-				*/
 		}
 
 		void Shader::loadFromMemory(const std::string & vertexShaderCode, const std::string & fragmentShaderCode)
 		{
+			release();
+
 			_shaderProgram = glCreateProgram();
 			if (!_shaderProgram)
 				error() << GL::getErrorDescription(glGetError()) << endl;
 
-			GLuint vertexShader = loadShader(vertexShaderCode, GL_VERTEX_SHADER);
-			GLuint fragmentShader = loadShader(fragmentShaderCode, GL_FRAGMENT_SHADER);
+			_vertexShader = loadShader(vertexShaderCode, GL_VERTEX_SHADER);
+			_fragmentShader = loadShader(fragmentShaderCode, GL_FRAGMENT_SHADER);
 
-			GL_CHECK(glAttachShader(_shaderProgram, vertexShader));
-			GL_CHECK(glAttachShader(_shaderProgram, fragmentShader));
+			GL_CHECK(glAttachShader(_shaderProgram, _vertexShader));
+			GL_CHECK(glAttachShader(_shaderProgram, _fragmentShader));
 
-
-
-
-			/*
-
-		GLuint vertexShader;
-		GLuint fragmentShader;
-		GLuint shaderProgram;
-		GLint linked;
-
-		vertexShader = loadShader0(vertexShaderCode, GL_VERTEX_SHADER);
-		fragmentShader = loadShader0(fragmentShaderCode, GL_FRAGMENT_SHADER);
-
-		shaderProgram = glCreateProgram();
-
-		if (shaderProgram == 0)
-			v1::error() << "error creating shader program" << endl;
-
-		glAttachShader(shaderProgram, vertexShader);
-		glAttachShader(shaderProgram, fragmentShader);
-
-		glBindAttribLocation(shaderProgram, 0, "vPosition");
-
-		glLinkProgram(shaderProgram);
-
-		glGetProgramiv(shaderProgram, GL_LINK_STATUS, &linked);
-
-		if (!linked)
-		{
-			GLint infoLen = 0;
-			glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLen);
-
-			if (infoLen > 1)
-			{
-				char* infoLog = (char*)malloc(sizeof(char) * infoLen);
-				glGetProgramInfoLog(shaderProgram, infoLen, NULL, infoLog);
-				glDeleteProgram(shaderProgram);
-				string infoLogString(infoLog);
-				free(infoLog);
-				v1::error() << "Error linking program: " << endl << infoLogString << endl;
-			}
-		}
-
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-		return shaderProgram;
-			*/
-
+			linkProgram();
 		}
 
 		void Shader::loadDefaultShader()

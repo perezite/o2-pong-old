@@ -141,15 +141,36 @@ namespace rendererDemo1
         }
     }
     
+	void draw1(v1::Shader& shader)
+	{
+		GLfloat vertices[] =
+		{
+			 0.0f,  0.5f, 0.0f,
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f
+		};
+
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glUseProgram(shader.getGlShaderProgram());
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+		glEnableVertexAttribArray(0);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
+
 	void demo1() {
 		v1::Window window(v1::Vector2i(600, 400), "Pong");
-		// v1::Shader& Shader::getDefaultShader();
+		v1::Shader shader;
+		
+		shader.loadDefaultShader();
 
 		while (window.isOpen())
 		{
 			window.update();
 
-			// draw1(shader);
+			draw1(shader);
 
 			window.display();
 		}
