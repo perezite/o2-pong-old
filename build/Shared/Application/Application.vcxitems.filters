@@ -16,7 +16,7 @@
     <Filter Include="Demos\00_Window">
       <UniqueIdentifier>{a3f01c88-0228-4343-8df1-4c23ddc2a818}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demos\01_Renderer">
+    <Filter Include="Demos\01_Shader">
       <UniqueIdentifier>{27a94316-4365-47e6-b9dd-14363c0edb6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -47,7 +47,7 @@
       <Filter>Library\v1</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.cpp">
-      <Filter>Demos\01_Renderer</Filter>
+      <Filter>Demos\01_Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +91,7 @@
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Renderer_Demo1.h">
-      <Filter>Demos\01_Renderer</Filter>
+      <Filter>Demos\01_Shader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

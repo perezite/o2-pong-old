@@ -176,11 +176,50 @@ namespace rendererDemo1
 		}
 	}
 
+	void drawQuad2(const v1::Vector2f& position, const v1::Vector2f& size, v1::Shader& shader)
+	{
+		GLfloat vertices[] =
+		{
+			position.x - size.x, position.y - size.y, 0,
+			position.x + size.x, position.y - size.y, 0,
+			position.x + size.x, position.y + size.y, 0,
+			position.x - size.x, position.y + size.y, 0,
+		};
+
+		glUseProgram(shader.getGlShaderProgram());
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+		glEnableVertexAttribArray(0);
+
+		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+	}
+
+	void demo2()
+	{
+		v1::Window window(v1::Vector2i(600, 400), "Pong");
+		v1::Shader shader;
+
+		shader.loadDefaultShader();
+
+		while (window.isOpen())
+		{
+			window.update();
+
+			glClear(GL_COLOR_BUFFER_BIT);
+			drawQuad2(v1::Vector2f(-.9f,  .3f), v1::Vector2f(.05f, .4f), shader);
+			drawQuad2(v1::Vector2f( .9f, -.4f), v1::Vector2f(.05f, .4f), shader);
+
+
+			window.display();
+		}
+	}
+
     void run()
     {
 		// maybe implement something like this: https://www.youtube.com/watch?v=YJX_KyXR0Y0
 
-		demo1();
+		demo2();
+		//demo1();
         //demo0();
     }
 }
