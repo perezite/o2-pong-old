@@ -1,5 +1,5 @@
-#include "Window_Demo1.h"
-#include "Renderer_Demo1.h"
+#include "WindowDemo1.h"
+#include "RendererDemo1.h"
 
 #include <iostream>
 

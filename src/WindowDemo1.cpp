@@ -1,4 +1,4 @@
-#include "Window_Demo1.h"
+#include "WindowDemo1.h"
 #include "WindowV1.h"
 
 using namespace std;
