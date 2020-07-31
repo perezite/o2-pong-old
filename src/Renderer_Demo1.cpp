@@ -1,5 +1,6 @@
 #include "Window_Demo1.h"
 #include "WindowV1.h"
+#include "ShaderV1.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -140,8 +141,25 @@ namespace rendererDemo1
         }
     }
     
+	void demo1() {
+		v1::Window window(v1::Vector2i(600, 400), "Pong");
+		// v1::Shader& Shader::getDefaultShader();
+
+		while (window.isOpen())
+		{
+			window.update();
+
+			// draw1(shader);
+
+			window.display();
+		}
+	}
+
     void run()
     {
-        demo0();
+		// maybe implement something like this: https://www.youtube.com/watch?v=YJX_KyXR0Y0
+
+		demo1();
+        //demo0();
     }
 }

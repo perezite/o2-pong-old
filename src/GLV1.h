@@ -27,6 +27,8 @@ namespace o2
 		{
 		public:
 			static void init();
+			
+			static std::string getErrorDescription(GLenum error);
 		};
 
 		namespace priv
