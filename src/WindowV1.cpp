@@ -45,7 +45,6 @@ namespace o2
 
 		void Window::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType)
 		{
-			_renderer.draw(vertices, primitiveType);
 		}
 
 		void Window::display()

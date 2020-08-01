@@ -9,12 +9,12 @@ namespace o2
 	{
 		struct Vertex
 		{
-			Vector2f _position;
+			Vector2f position;
 
-			Color _color;
+			Color color;
 
-			Vertex(const Vector2f& position = Vector2f(0, 0), const Color& color = Color(0, 0, 0, 1))
-				: _position(position), _color(color)
+			Vertex(const Vector2f& position_ = Vector2f(0, 0), const Color& color_ = Color(0, 0, 0, 1))
+				: position(position_), color(color_)
 			{ }
 		};
 	}

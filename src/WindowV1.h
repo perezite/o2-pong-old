@@ -4,7 +4,6 @@
 #include "ColorV1.h"
 #include "VertexV1.h"
 #include "PrimitiveTypeV1.h"
-#include "RendererV1.h"
 
 #include <SDL2/SDL.h>
 #include <string>
@@ -27,8 +26,6 @@ namespace o2
 			SDL_Window* _sdlWindow;
 
 			Uint32 _windowId;
-
-			Renderer _renderer;
 
 		public:
 			Window(const Vector2i& size, const std::string& title);

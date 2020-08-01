@@ -1,56 +1,55 @@
 #include "RendererV1.h"
+#include "ShaderV2.h"
+#include "GLV1.h"
 
 namespace o2
 {
 	namespace v1
 	{
+		namespace
+		{
+			void ensureDefaultShader(v2::Shader& shader) 
+			{
+				static bool defaultShaderInitialized = false;
+				if (!defaultShaderInitialized)
+				{
+					shader.loadDefaultShader();
+					defaultShaderInitialized = true;
+				}
+			}
+
+		}
+
 		void Renderer::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType)
 		{
 			if (vertices.empty())
 				return;
 
-			// Shader& shader = Shader::getDefaultShader();
-			// setup(vertices, shader);
-			// drawVertices(vertices, primitiveType);
-			// cleanup(shader);
-		}
+			ensureDefaultShader(_defaultShader);
+			glUseProgram(_defaultShader.getGlShaderProgram());
 
-		/*
-		void Renderer::setup(Shader& shader, const vector<Vertex>& vertices)
-		{
-			GL_CHECK(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-			GL_CHECK(glEnable(GL_BLEND));
+			
+			GL_CHECK(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), &(vertices[0])));
+			GL_CHECK(glEnableVertexAttribArray(0));
 
-			shader.use();
-			setupShaderAttributes(shader, vertices);
-		}
+			GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
 
-		void Renderer::setupShaderAttributes(Shader& shader, const vector<Vertex>& vertices)
-		{
-			GLvoid* position = &(vertices[0].position);
-			GLvoid* color = &(vertices[0].color);
-			setShaderAttribute(shader.getAttributeLocation("position"), 2, GL_FLOAT, GL_FALSE, position);
-			setShaderAttribute(shader.getAttributeLocation("color"), 4, GL_FLOAT, GL_FALSE, position);
-		}
+			GL_CHECK(glDisableVertexAttribArray(0));
 
-		inline void Renderer::setShaderAttribute(GLuint location, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid* value) 
-		{
-			GL_CHECK(glVertexAttribPointer(location, size, type, normalized, stride, value));
-			GL_CHECK(glEnableVertexAttribArray(location));
-		}
-		*/
 
-		void Renderer::drawVertices(const std::vector<Vertex>& vertices, PrimitiveType primitiveType)
-		{
-			// GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
-		}
+			//const GLfloat myVertices[] =
+			//{
+			//	-.5f,  -.5f,
+			//	 .5f, -0.5f,
+			//	   0,  0.5f
+			//};
 
-		/*
-		void Renderer::cleanup(Shader& shader) 
-		{
-			GL_CHECK(glDisableVertexAttribArray(shader.getAttributeLocation("color")));
-			GL_CHECK(glDisableVertexAttribArray(shader.getAttributeLocation("position")));
+			//glClear(GL_COLOR_BUFFER_BIT);
+
+			//glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, myVertices);
+			//glEnableVertexAttribArray(0);
+
+			//glDrawArrays(GL_TRIANGLES, 0, 3);
 		}
-		*/
 	}
 }

@@ -1,18 +1,18 @@
-#include "ShaderV1.h"
+#include "ShaderV2.h"
 
 using namespace std;
 
 namespace o2
 {
-	namespace v1
+	namespace v2
 	{
 		namespace
 		{
 			const char DefaultVertexShaderCode[] =
-				"attribute vec4 position;							\n"
+				"attribute vec2 position;							\n"
 				"void main()										\n"
 				"{													\n"
-				"	gl_Position = position;							\n"
+				"	gl_Position = vec4(position.xy, 0, 1);			\n"
 				"}													\n";
 
 			const char DefaultFragmentShaderCode[] =
@@ -44,7 +44,7 @@ namespace o2
 				}
 
 				release();
-				error() << "Error compiling shader: " << endl << infoLog << endl;
+				v1::error() << "Error compiling shader: " << endl << infoLog << endl;
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace o2
 				}
 
 				release();
-				error() << "Error linking shader program: " << endl << infoLog << endl;
+				v1::error() << "Error linking shader program: " << endl << infoLog << endl;
 			}
 		}
 
@@ -90,7 +90,7 @@ namespace o2
 
 			shader = glCreateShader(shaderType);
 			if (!shader)
-				error() << GL::getErrorDescription(glGetError()) << endl;
+				v1::error() << v1::GL::getErrorDescription(glGetError()) << endl;
 
 			const char* rawShaderSource = shaderCode.c_str();
 			GL_CHECK(glShaderSource(shader, 1, &rawShaderSource, NULL));
@@ -106,7 +106,7 @@ namespace o2
 
 			_shaderProgram = glCreateProgram();
 			if (!_shaderProgram)
-				error() << GL::getErrorDescription(glGetError()) << endl;
+				 v1::error() << v1::GL::getErrorDescription(glGetError()) << endl;
 
 			_vertexShader = loadShader(vertexShaderCode, GL_VERTEX_SHADER);
 			_fragmentShader = loadShader(fragmentShaderCode, GL_FRAGMENT_SHADER);
