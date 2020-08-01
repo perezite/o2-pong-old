@@ -1,11 +1,12 @@
-#include "EventsV1.h"
+#include "EventsV2.h"
 #include "STLV1.h"
 
 #include <SDL2/SDL.h>
+#include "EventsV2.h"
 
 namespace o2
 {
-	namespace v1
+	namespace v2
 	{
 		std::vector<Uint32> Events::_closeEvents;
 
@@ -14,7 +15,7 @@ namespace o2
 		{
 			_closeEvents.clear();
 		}
-
+		
 		void Events::update()
 		{
 			clear();
@@ -30,9 +31,9 @@ namespace o2
 			}
 		}
 
-		bool Events::hasSdlCloseEvent(Uint32 windowId)
+		bool Events::hasCloseRequest(const v2::Window& window)
 		{
-			return stl::find_any(_closeEvents, windowId);
+			return v1::stl::find_any(_closeEvents, window.getSdlWindowId());
 		}
 	}
 }

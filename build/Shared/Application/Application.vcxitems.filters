@@ -19,6 +19,9 @@
     <Filter Include="Demos\01_Renderer">
       <UniqueIdentifier>{27a94316-4365-47e6-b9dd-14363c0edb6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\v2">
+      <UniqueIdentifier>{f3895dc4-387e-4acf-9663-12583fd2cfbc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
@@ -43,11 +46,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\WindowDemo1.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.cpp">
+      <Filter>Demos\01_Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo1.cpp">
+      <Filter>Demos\01_Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowDemo1.cpp">
       <Filter>Demos\00_Window</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\RendererDemo1.cpp">
-      <Filter>Demos\01_Renderer</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV2.cpp">
+      <Filter>Library\v2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,11 +99,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\WindowDemo1.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.h">
+      <Filter>Demos\01_Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo1.h">
+      <Filter>Demos\01_Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowDemo1.h">
       <Filter>Demos\00_Window</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\RendererDemo1.h">
-      <Filter>Demos\01_Renderer</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV2.h">
+      <Filter>Library\v2</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV2.h">
+      <Filter>Library\v2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

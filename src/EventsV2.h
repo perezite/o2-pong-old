@@ -1,12 +1,14 @@
 #pragma once
 
+#include "WindowV2.h"
+
 #include <SDL2/SDL.h>
 
 #include <vector>
 
 namespace o2
 {
-	namespace v1
+	namespace v2
 	{
 		class Events
 		{
@@ -18,7 +20,7 @@ namespace o2
 		public:
 			static void update();
 
-			static bool hasSdlCloseEvent(Uint32 windowId);
+			static bool hasCloseRequest(const v2::Window& window);
 		};
 	}
 }

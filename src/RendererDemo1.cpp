@@ -203,12 +203,10 @@ namespace rendererDemo1
 
 		while (window.isOpen())
 		{
-			window.update();
+			window.clear(v1::Color(.2f, .4f, .2f, 1));
 
-			glClear(GL_COLOR_BUFFER_BIT);
 			drawQuad2(v1::Vector2f(-.9f,  .3f), v1::Vector2f(.05f, .4f), shader);
 			drawQuad2(v1::Vector2f( .9f, -.4f), v1::Vector2f(.05f, .4f), shader);
-
 
 			window.display();
 		}

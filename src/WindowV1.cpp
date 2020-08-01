@@ -33,7 +33,7 @@ namespace o2
 		{
 			Events::update();
 			
-			if (Events::hasSDLCloseEvent(_windowId))
+			if (Events::hasSdlCloseEvent(_windowId))
 				_isOpen = false;
 		}
 
