@@ -35,21 +35,6 @@ namespace o2
 			GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
 
 			GL_CHECK(glDisableVertexAttribArray(0));
-
-
-			//const GLfloat myVertices[] =
-			//{
-			//	-.5f,  -.5f,
-			//	 .5f, -0.5f,
-			//	   0,  0.5f
-			//};
-
-			//glClear(GL_COLOR_BUFFER_BIT);
-
-			//glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, myVertices);
-			//glEnableVertexAttribArray(0);
-
-			//glDrawArrays(GL_TRIANGLES, 0, 3);
 		}
 	}
 }

@@ -25,6 +25,9 @@
     <Filter Include="Library\v2\Headers">
       <UniqueIdentifier>{159d36d5-000e-4220-911f-83ab4ebc24f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\v3">
+      <UniqueIdentifier>{582ddd7f-1fae-456e-b607-231ee51ef490}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
@@ -66,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV2.cpp">
       <Filter>Library\v2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.cpp">
+      <Filter>Library\v3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV2.h">
       <Filter>Library\v2\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.h">
+      <Filter>Library\v3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
