@@ -77,6 +77,25 @@ namespace o2
 			}
 		}
 
+		inline void Shader::use()
+		{
+			GL_CHECK(glUseProgram(getGlShaderProgram()));
+		}
+
+		inline void Shader::setupVertexAttributeArray(const string & attribute, GLint size, 
+			GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer)
+		{
+			GLuint attributeLocation = getAttributeLocation(attribute);
+			GL_CHECK(glVertexAttribPointer(attributeLocation, size, type, normalized, stride, pointer));
+			GL_CHECK(glEnableVertexAttribArray(attributeLocation));
+		}
+
+		inline void Shader::disableVertexAttributeArray(const std::string & attribute)
+		{
+			GLuint attributeLocation = getAttributeLocation(attribute);
+			GL_CHECK(glDisableVertexAttribArray(attributeLocation));
+		}
+
 		void Shader::release()
 		{
 			if (_fragmentShader)
@@ -137,6 +156,20 @@ namespace o2
 		void Shader::loadDefaultShader()
 		{
 			loadFromMemory(DefaultVertexShaderCode, DefaultFragmentShaderCode);
+		}
+
+		void Shader::setupDraw(std::vector<v1::Vertex>& vertices)
+		{
+			use();
+
+			setupVertexAttributeArray("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
+			setupVertexAttributeArray("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
+		}
+
+		void Shader::cleanupDraw()
+		{
+			disableVertexAttributeArray("color");
+			disableVertexAttributeArray("position");
 		}
 	}
 }

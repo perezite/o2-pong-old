@@ -1,9 +1,11 @@
 #pragma once
 
 #include "GLV1.h"
+#include "VertexV1.h"
 
 #include <string>
 #include <map>
+#include <vector>
 
 namespace o2
 {
@@ -26,6 +28,13 @@ namespace o2
 
 			void linkProgram();
 
+			void use();
+
+			void setupVertexAttributeArray(const std::string& attribute, GLint size, 
+				GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer);
+
+			void disableVertexAttributeArray(const std::string& attribute);
+
 			void release();
 
 		public:
@@ -42,6 +51,10 @@ namespace o2
 			void loadFromMemory(const std::string& vertexShaderCode, const std::string& fragmentShaderCode);
 
 			void loadDefaultShader();
+
+			void setupDraw(std::vector<v1::Vertex>& vertices);
+
+			void cleanupDraw();
 
 		};
 	}
