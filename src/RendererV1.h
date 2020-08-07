@@ -2,7 +2,7 @@
 
 #include "VertexV1.h"
 #include "PrimitiveTypeV1.h"
-#include "ShaderV2.h"
+#include "ShaderV3.h"
 
 #include <vector>
 
@@ -12,10 +12,13 @@ namespace o2
 	{
 		class Renderer
 		{
-			v2::Shader _defaultShader;
+			v3::Shader _defaultShader;
+
+		protected:
+			void ensureDefaultShader();
 
 		public:
-			void draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType);
+			void draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, v3::Shader* shader = NULL);
 		};
 	}
 }

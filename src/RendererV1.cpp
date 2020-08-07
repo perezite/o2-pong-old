@@ -6,35 +6,31 @@ namespace o2
 {
 	namespace v1
 	{
-		namespace
+		void Renderer::ensureDefaultShader()
 		{
-			void ensureDefaultShader(v2::Shader& shader) 
+			static bool loaded = false;
+			if (!loaded)
 			{
-				static bool defaultShaderInitialized = false;
-				if (!defaultShaderInitialized)
-				{
-					shader.loadDefaultShader();
-					defaultShaderInitialized = true;
-				}
+				_defaultShader.loadDefaultShader();
+				loaded = true;
 			}
-
 		}
 
-		void Renderer::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType)
+		void Renderer::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, v3::Shader* shader)
 		{
 			if (vertices.empty())
 				return;
 
-			ensureDefaultShader(_defaultShader);
-			glUseProgram(_defaultShader.getGlShaderProgram());
+			ensureDefaultShader();
 
-			
-			GL_CHECK(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), &(vertices[0])));
-			GL_CHECK(glEnableVertexAttribArray(0));
+			if (shader == NULL)
+				shader = &_defaultShader;
+
+			shader->setupDraw(vertices);
 
 			GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
 
-			GL_CHECK(glDisableVertexAttribArray(0));
+			shader->cleanupDraw();
 		}
 	}
 }

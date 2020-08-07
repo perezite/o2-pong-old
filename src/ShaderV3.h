@@ -28,12 +28,12 @@ namespace o2
 
 			void linkProgram();
 
-			void use();
+			void useShader();
 
-			void setupVertexAttributeArray(const std::string& attribute, GLint size, 
+			void setupVertexAttribute(const std::string& attribute, GLint size, 
 				GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer);
 
-			void disableVertexAttributeArray(const std::string& attribute);
+			void cleanupVertexAttribute(const std::string& attribute);
 
 			void release();
 
@@ -52,7 +52,7 @@ namespace o2
 
 			void loadDefaultShader();
 
-			void setupDraw(std::vector<v1::Vertex>& vertices);
+			void setupDraw(const std::vector<v1::Vertex>& vertices);
 
 			void cleanupDraw();
 

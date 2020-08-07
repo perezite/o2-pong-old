@@ -77,12 +77,12 @@ namespace o2
 			}
 		}
 
-		inline void Shader::use()
+		inline void Shader::useShader()
 		{
 			GL_CHECK(glUseProgram(getGlShaderProgram()));
 		}
 
-		inline void Shader::setupVertexAttributeArray(const string & attribute, GLint size, 
+		inline void Shader::setupVertexAttribute(const string & attribute, GLint size, 
 			GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer)
 		{
 			GLuint attributeLocation = getAttributeLocation(attribute);
@@ -90,7 +90,7 @@ namespace o2
 			GL_CHECK(glEnableVertexAttribArray(attributeLocation));
 		}
 
-		inline void Shader::disableVertexAttributeArray(const std::string & attribute)
+		inline void Shader::cleanupVertexAttribute(const std::string & attribute)
 		{
 			GLuint attributeLocation = getAttributeLocation(attribute);
 			GL_CHECK(glDisableVertexAttribArray(attributeLocation));
@@ -140,9 +140,7 @@ namespace o2
 		{
 			release();
 
-			_shaderProgram = glCreateProgram();
-			if (!_shaderProgram)
-				 v1::error() << v1::GL::getErrorDescription(glGetError()) << endl;
+			GL_CHECK(_shaderProgram = glCreateProgram());
 
 			_vertexShader = loadShader(vertexShaderCode, GL_VERTEX_SHADER);
 			_fragmentShader = loadShader(fragmentShaderCode, GL_FRAGMENT_SHADER);
@@ -158,18 +156,18 @@ namespace o2
 			loadFromMemory(DefaultVertexShaderCode, DefaultFragmentShaderCode);
 		}
 
-		void Shader::setupDraw(std::vector<v1::Vertex>& vertices)
+		void Shader::setupDraw(const std::vector<v1::Vertex>& vertices)
 		{
-			use();
+			useShader();
 
-			setupVertexAttributeArray("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
-			setupVertexAttributeArray("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
+			setupVertexAttribute("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
+			setupVertexAttribute("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
 		}
 
 		void Shader::cleanupDraw()
 		{
-			disableVertexAttributeArray("color");
-			disableVertexAttributeArray("position");
+			cleanupVertexAttribute("color");
+			cleanupVertexAttribute("position");
 		}
 	}
 }
