@@ -100,9 +100,21 @@ namespace o2
 
 		void priv::glCheck(const char* command, const char * file, unsigned int line)
 		{
-			GLenum error = glGetError();
-			if (error != GL_NO_ERROR)
-				v1::error() << GL::getErrorDescription(error) << endl;
+			bool hasError = false;
+			ostringstream os;
+			GLenum error;
+
+			do
+			{
+				error = glGetError();
+				if (error != GL_NO_ERROR) {
+					hasError = true;
+					os << GL::getErrorDescription(error) << endl;
+				}
+			} while (error != GL_NO_ERROR);
+
+			if (hasError)
+				v1::error() << os.str() << endl;
 		}
 	}
 }

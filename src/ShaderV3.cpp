@@ -114,10 +114,7 @@ namespace o2
 		GLuint Shader::loadShader(const std::string & shaderCode, GLenum shaderType)
 		{
 			GLuint shader;
-
-			shader = glCreateShader(shaderType);
-			if (!shader)
-				v1::error() << v1::GL::getErrorDescription(glGetError()) << endl;
+			GL_CHECK(shader = glCreateShader(shaderType));
 
 			const char* rawShaderSource = shaderCode.c_str();
 			GL_CHECK(glShaderSource(shader, 1, &rawShaderSource, NULL));
@@ -131,7 +128,8 @@ namespace o2
 		{
 			if (_attributeLocations.find(attribute) == _attributeLocations.end()) 
 			{
-				GLint location = glGetAttribLocation(_shaderProgram, attribute.c_str());
+				GLint location;
+				GL_CHECK(location = glGetAttribLocation(_shaderProgram, attribute.c_str()));
 				if (location < 0)
 					v1::error() << "Requested shader attribute '" << attribute << "' does not exist";
 				_attributeLocations[attribute] = location;
