@@ -31,7 +31,7 @@ namespace o2
 			}
 		}
 
-		bool Events::hasCloseRequest(const v2::Window& window)
+		bool Events::isCloseRequested(const v2::Window& window)
 		{
 			return v1::stl::find_any(_closeEvents, window.getSdlWindowId());
 		}

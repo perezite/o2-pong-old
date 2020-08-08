@@ -7,8 +7,6 @@ namespace o2
 {
 	namespace v2
 	{
-		bool Window::_hasInstance = false;
-
 		Window::Window(const v1::Vector2i& size, const std::string& title)
 			: _isOpen(true), _size(size), _title(title)
 		{
@@ -17,14 +15,12 @@ namespace o2
 			_windowId = v1::sdlCheck(SDL_GetWindowID(_sdlWindow));
 			_glContext = v1::SDL::createGLContext(_sdlWindow);
 			v1::GL::init();
-			_hasInstance = true;
 			_renderer = new v1::Renderer();
 		}
 
 		Window::~Window()
 		{
 			delete _renderer;
-			_hasInstance = false;
 			SDL_GL_DeleteContext(_glContext);
 			SDL_DestroyWindow(_sdlWindow);
 			v1::SDL::quit();
@@ -36,9 +32,9 @@ namespace o2
 			GL_CHECK(glClear(GL_COLOR_BUFFER_BIT));
 		}
 
-		void Window::draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType)
+		void Window::draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, v3::Shader* shader)
 		{
-			_renderer->draw(vertices, primitiveType);
+			_renderer->draw(vertices, primitiveType, shader);
 		}
 
 		void Window::display()
