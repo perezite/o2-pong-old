@@ -86,7 +86,7 @@ namespace o2
 				description = "Unknown GL error";
 			}
 
-			return "OpenGL error. Message: '" + description + "', Code: '" + code;
+			return description + " (" + code + ")";
 		}
 
 		void priv::glClearErrors()
@@ -114,7 +114,8 @@ namespace o2
 			} while (error != GL_NO_ERROR);
 
 			if (hasError)
-				v1::error() << os.str() << endl;
+				v1::error() << "OpenGL error in " << 
+					file << ", line " << line << ":" << endl << os.str() << endl;
 		}
 	}
 }
