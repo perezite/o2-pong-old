@@ -6,8 +6,14 @@
 
 #include <vector>
 
+
 namespace o2
 {
+	namespace v2
+	{
+		class Window;
+	}
+	
 	namespace v1
 	{
 		class Renderer

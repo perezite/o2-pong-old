@@ -1,4 +1,6 @@
 #include "ShaderV3.h"
+#include "WindowV2.h"
+#include "ErrorV1.h"
 
 using namespace std;
 
@@ -18,7 +20,9 @@ namespace o2
 				"	gl_Position = vec4(position.xy, 0, 1);			\n"
 				"}													\n";
 
+			// https://github.com/mattdesl/lwjgl-basics/wiki/GLSL-Versions
 			const char DefaultFragmentShaderCode[] =
+				"#version 100										\n"
 				"precision mediump float;							\n"
 				"varying vec4 v_color;								\n"
 				"void main()										\n"
@@ -106,7 +110,6 @@ namespace o2
 				GL_CHECK(glDeleteProgram(_shaderProgram));
 		}
 
-
 		GLuint Shader::loadShader(const std::string & shaderCode, GLenum shaderType)
 		{
 			GLuint shader;
@@ -121,6 +124,13 @@ namespace o2
 			compileShader(shader);
 
 			return shader;
+		}
+
+		Shader::Shader() :
+			_shaderProgram(0), _vertexShader(0), _fragmentShader(0)
+		{
+			if (!v2::Window::hasInstance())
+				v1::error() << "Trying to create a shader before having created a window" << endl;
 		}
 
 		GLint Shader::getAttributeLocation(std::string attribute)

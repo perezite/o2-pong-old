@@ -1,6 +1,10 @@
 #include "RendererV1.h"
 #include "ShaderV2.h"
+#include "WindowV2.h"
 #include "GLV1.h"
+#include "ErrorV1.h"
+
+using namespace std;
 
 namespace o2
 {

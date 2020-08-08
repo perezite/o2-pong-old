@@ -89,6 +89,15 @@ namespace o2
 			return "OpenGL error. Message: '" + description + "', Code: '" + code;
 		}
 
+		void priv::glClearErrors()
+		{
+			GLenum error;
+			do
+			{
+				error = glGetError();
+			} while (error != GL_NO_ERROR);
+		}
+
 		void priv::glCheck(const char* command, const char * file, unsigned int line)
 		{
 			GLenum error = glGetError();

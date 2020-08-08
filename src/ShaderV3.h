@@ -38,9 +38,7 @@ namespace o2
 			void release();
 
 		public:
-			Shader()
-				: _shaderProgram(0), _vertexShader(0), _fragmentShader(0)
-			{ }
+			Shader();
 
 			inline virtual ~Shader() { release(); }
 

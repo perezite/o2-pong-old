@@ -14,7 +14,7 @@
 #include <sstream>
 
 #if defined(_DEBUG) && !defined(GL_DISABLE_CHECKS)
-	#define GL_CHECK(cmd) do { cmd; o2::v1::priv::glCheck(#cmd, __FILE__, __LINE__); } while (false)
+	#define GL_CHECK(cmd) do { v1::priv::glClearErrors(); cmd; o2::v1::priv::glCheck(#cmd, __FILE__, __LINE__); } while (false)
 #else
 	#define GL_CHECK(cmd) cmd
 #endif
@@ -33,6 +33,8 @@ namespace o2
 
 		namespace priv
 		{
+			void glClearErrors();
+
 			void glCheck(const char* command, const char* file, unsigned int line);
 		}
 	}
