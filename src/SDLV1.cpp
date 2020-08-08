@@ -69,5 +69,11 @@ namespace o2
 			IMG_Quit();
 			SDL_Quit();
 		}
+
+		bool SDL::hasActiveGlContext()
+		{
+			SDL_GLContext context = SDL_GL_GetCurrentContext();
+			return context != NULL;
+		}
 	}
 }

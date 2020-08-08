@@ -175,11 +175,12 @@ namespace rendererDemo2
 	void demo5()
 	{
 		v2::Window window(v1::Vector2i(600, 400), "Pong");
-		v1::Renderer renderer;
 		v3::Shader shader;
+		v1::Renderer renderer;
 		vector<v1::Vertex> vertices(3);
 
 		shader.loadDefaultShader();
+
 		vertices[0] = v1::Vertex(v1::Vector2f(0, 0.5f), v1::Color(1, 0, 0, 1));
 		vertices[1] = v1::Vertex(v1::Vector2f(-.5f, -.5f), v1::Color(0, 1, 0, 1));
 		vertices[2] = v1::Vertex(v1::Vector2f(.5f, -.5f), v1::Color(0, 0, 1, 1));

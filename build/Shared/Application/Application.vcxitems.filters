@@ -73,6 +73,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.cpp">
       <Filter>Library\v3</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GlObject.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
@@ -131,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.h">
       <Filter>Library\v3</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GlObject.h">
+      <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

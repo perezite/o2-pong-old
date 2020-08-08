@@ -19,6 +19,8 @@ namespace o2
 			static SDL_GLContext createGLContext(SDL_Window* sdlWindow);
 
 			static void quit();
+
+			static bool hasActiveGlContext();
 		};
 
 		inline int sdlCheck(int resultCode)
