@@ -20,7 +20,7 @@ namespace o2
 		public:
 			static void update();
 
-			static bool isCloseRequested(const v2::Window& window);
+			static bool hasCloseRequest(const v2::Window& window);
 		};
 	}
 }
