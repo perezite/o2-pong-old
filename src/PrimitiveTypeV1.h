@@ -9,7 +9,8 @@ namespace o2
 		enum class PrimitiveType
 		{
 			Triangles = GL_TRIANGLES,
-			TriangleStrip = GL_TRIANGLE_STRIP
+			TriangleStrip = GL_TRIANGLE_STRIP,
+			TriangleFan = GL_TRIANGLE_FAN
 		};
 	}
 }

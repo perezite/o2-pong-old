@@ -24,6 +24,8 @@ namespace o2
 
 			inline Vertex& operator[] (size_t index) { return _vertices[index]; }
 
+			inline size_t getVertexCount() const { return _vertices.size(); }
+
 			virtual void draw(v2::Window& window);
 		};
 	}

@@ -28,6 +28,9 @@
     <Filter Include="Library\v3">
       <UniqueIdentifier>{582ddd7f-1fae-456e-b607-231ee51ef490}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Demos\02_Shapes">
+      <UniqueIdentifier>{6c04bc9c-1f1b-46cf-a774-17b402c2406f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
@@ -77,6 +80,12 @@
       <Filter>Library\v1</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.cpp">
+      <Filter>Demos\02_Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ConvexShapeV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
   </ItemGroup>
@@ -145,6 +154,15 @@
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.h">
+      <Filter>Demos\02_Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\ConvexShapeV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Math.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>
