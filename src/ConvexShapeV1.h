@@ -17,12 +17,14 @@ namespace o2
 
 		public:
 			ConvexShape(size_t numVertices)
-				: _vertexArray(3, PrimitiveType::TriangleFan)
+				: _vertexArray(numVertices, PrimitiveType::TriangleFan)
 			{ }
 
 			void setColor(const v1::Color& color);
 
-			inline v1::Vertex& operator[](size_t index) { return _vertexArray[index]; }
+			inline v1::Vertex& getVertex(size_t index) { return _vertexArray[index]; }
+
+			inline v1::Vertex& operator[](size_t index) { return getVertex(index); }
 
 			void draw(v2::Window& window);
 		};

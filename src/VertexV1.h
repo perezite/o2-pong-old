@@ -13,7 +13,7 @@ namespace o2
 
 			Color color;
 
-			Vertex(const Vector2f& position_ = Vector2f(0, 0), const Color& color_ = Color(0, 0, 0, 1))
+			Vertex(const Vector2f& position_ = Vector2f(0, 0), const Color& color_ = Color(1, 1, 1, 1))
 				: position(position_), color(color_)
 			{ }
 		};

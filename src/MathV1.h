@@ -1,6 +1,9 @@
 #pragma once
 
 #include <random>
+#include <math.h>
+
+#define _USE_MATH_DEFINES
 
 namespace o2
 {
@@ -17,6 +20,8 @@ namespace o2
 			{
 				return min + (max - min) * random();
 			}
+
+			const float Pi = (float)M_PI;
 		}
 	}
 }
