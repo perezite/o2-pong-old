@@ -9,7 +9,7 @@ namespace o2
 {
 	namespace v1
 	{
-		GlObject::GlObject()
+		GLObject::GLObject()
 		{
 			if (!SDL::hasActiveGlContext())
 				error() << "Trying to create an object which requires an active OpenGL context, but no such cnotext present" << endl;

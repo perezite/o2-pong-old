@@ -82,9 +82,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.cpp">
       <Filter>Library\v3</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GlObject.cpp">
-      <Filter>Library\v1</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
@@ -102,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformsDemo1.cpp">
       <Filter>Demos\03_Transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLObject.cpp">
+      <Filter>Library\v1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +156,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.h">
       <Filter>Library\v3</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GlObject.h">
-      <Filter>Library\v1\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
@@ -166,9 +163,6 @@
       <Filter>Demos\02_Shapes</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.h">
-      <Filter>Library\v1\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\MathV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.h">
@@ -188,6 +182,10 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.h">
       <Filter>Demos\01_Renderer\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\MathV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLObject.h">
+      <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

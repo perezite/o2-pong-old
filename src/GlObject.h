@@ -4,10 +4,10 @@ namespace o2
 {
 	namespace v1
 	{
-		class GlObject
+		class GLObject
 		{
 		public:
-			GlObject();
+			GLObject();
 		};
 	}
 }

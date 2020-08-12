@@ -2,7 +2,7 @@
 
 #include "GLV1.h"
 #include "VertexV1.h"
-#include "GlObject.h"
+#include "GLObject.h"
 
 #include <string>
 #include <map>
@@ -12,7 +12,7 @@ namespace o2
 {
 	namespace v3
 	{
-		class Shader : public v1::GlObject
+		class Shader : public v1::GLObject
 		{
 			GLuint _shaderProgram;
 
