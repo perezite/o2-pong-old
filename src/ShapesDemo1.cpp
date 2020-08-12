@@ -3,10 +3,16 @@
 #include "WindowV2.h"
 #include "EventsV2.h"
 #include "MathV1.h"
-#include "CircleShapeV1.h"
 #include "ConvexShapeV1.h"
+#include "CircleShapeV1.h"
+#include "RectangleShapeV1.h"
+
 
 #include <stdlib.h>
+
+#ifdef __x86_64__
+#include <stdlib.h>
+#endif
 
 using namespace o2;
 
@@ -117,9 +123,56 @@ namespace shapesDemo1
 		}
 	}
 
+	void demo4()
+	{
+		v2::Window window(v1::Vector2i(400, 400), "Pong");
+
+		v1::ConvexShape quad(4);
+		v1::CircleShape triangle(20);
+
+		quad[0].position = v1::Vector2f(-.1f, -.1f);
+		quad[1].position = v1::Vector2f(.1f, -.1f);
+		quad[2].position = v1::Vector2f(.1f, .1f);
+		quad[3].position = v1::Vector2f(-.1f, .1f);
+		quad.setColor(v1::Color(1, 0, 0));
+
+		while (window.isOpen())
+		{
+			v2::Events::update();
+			if (v2::Events::hasCloseRequest(window))
+				window.close();
+
+			window.clear();
+			triangle.draw(window);
+			quad.draw(window);
+			window.display();
+		}
+	}
+
+	void demo5()
+	{
+		v2::Window window(v1::Vector2i(400, 400), "Pong");
+
+		 v1::RectangleShape rectangle(v1::Vector2f(1.5f, .5f));
+
+		while (window.isOpen())
+		{
+			v2::Events::update();
+			if (v2::Events::hasCloseRequest(window))
+				window.close();
+
+			window.clear();
+			rectangle.draw(window);
+			window.display();
+		}
+	}
+
+
 	void run()
 	{
-		demo3();
+		demo5();
+		//demo4();
+		//demo3();
 		//demo2();
 		//demo1();
 		// demo0();

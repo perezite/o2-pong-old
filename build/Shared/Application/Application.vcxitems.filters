@@ -85,8 +85,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.cpp">
       <Filter>Demos\02_Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.cpp">
+      <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
   </ItemGroup>
@@ -157,12 +162,19 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.h">
       <Filter>Demos\02_Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
     <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\MathV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>

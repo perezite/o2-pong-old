@@ -20,6 +20,12 @@ namespace o2
 			{ }
 		};
 
+		template <class T> 
+		inline Vector2<T> operator*(const T& s, const Vector2<T>& v)
+		{
+			return Vector2<T>(s * v.x, s * v.y);
+		}
+
 		typedef Vector2<int> Vector2i;
 		typedef Vector2<float> Vector2f;
 	}
