@@ -31,6 +31,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformsDemo1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
@@ -59,6 +60,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV3.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\STLV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformsDemo1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Vector2V1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexV1.h" />

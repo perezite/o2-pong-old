@@ -10,7 +10,7 @@ namespace o2
 		class RectangleShape : public ConvexShape
 		{
 		public:
-			RectangleShape(const Vector2f& size);
+			RectangleShape(const Vector2f& size = Vector2f(1, 1));
 		};
 	}
 }

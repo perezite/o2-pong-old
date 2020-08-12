@@ -153,7 +153,7 @@ namespace shapesDemo1
 	{
 		v2::Window window(v1::Vector2i(400, 400), "Pong");
 
-		 v1::RectangleShape rectangle(v1::Vector2f(1.5f, .5f));
+		v1::RectangleShape rectangle(v1::Vector2f(1.5f, .5f));
 
 		while (window.isOpen())
 		{
@@ -167,10 +167,9 @@ namespace shapesDemo1
 		}
 	}
 
-
 	void run()
 	{
-		demo5();
+		//demo5();
 		//demo4();
 		//demo3();
 		//demo2();
