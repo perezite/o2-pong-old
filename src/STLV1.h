@@ -11,7 +11,7 @@ namespace o2
 		namespace stl
 		{
 			template <class Container, class T>
-			inline static bool find_any(Container container, T val)
+			inline static bool has_any(Container container, T val)
 			{
 				return find(container.begin(), container.end(), val) != container.end();
 			}

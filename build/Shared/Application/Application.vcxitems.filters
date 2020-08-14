@@ -37,6 +37,9 @@
     <Filter Include="Demos\01_Renderer\Headers">
       <UniqueIdentifier>{42fadec8-9ff9-4086-aa00-1577cb74cb10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\v4">
+      <UniqueIdentifier>{9ec5c50d-fcb5-42fa-b2cc-a3e1a2505da2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
@@ -102,6 +105,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLObject.cpp">
       <Filter>Library\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV4.cpp">
+      <Filter>Library\v4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV2.cpp">
+      <Filter>Library\v2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +200,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\MathV1.h">
       <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV4.h">
+      <Filter>Library\v4</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV2.h">
+      <Filter>Library\v2\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

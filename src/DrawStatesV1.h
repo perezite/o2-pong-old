@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ShaderV3.h"
+#include "ShaderV4.h"
 
 namespace o2
 {
@@ -8,13 +8,13 @@ namespace o2
 	{
 		struct DrawStates
 		{
-			v3::Shader* shader;
+			v4::Shader* shader;
 
-			DrawStates(v3::Shader* shader_ = NULL)
+			DrawStates(v4::Shader* shader_ = NULL)
 				: shader(shader_)
 			{ }
 
-			DrawStates(v3::Shader& shader_)
+			DrawStates(v4::Shader& shader_)
 				: DrawStates(&shader_)
 			{ }
 		};

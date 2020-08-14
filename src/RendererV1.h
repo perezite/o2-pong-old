@@ -3,10 +3,8 @@
 #include "VertexV1.h"
 #include "PrimitiveTypeV1.h"
 #include "ShaderV3.h"
-#include "DrawStatesV1.h"
 
 #include <vector>
-
 
 namespace o2
 {
@@ -22,12 +20,10 @@ namespace o2
 			v3::Shader _defaultShader;
 
 		protected:
-			void ensureDefaultShader();
-
-			v3::Shader* getDefaultShader();
+			v3::Shader* ensureDefaultShader();
 
 		public:
-			void draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, const DrawStates& drawStates = DrawStates());
+			void draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, v3::Shader* shader = NULL);
 		};
 	}
 }

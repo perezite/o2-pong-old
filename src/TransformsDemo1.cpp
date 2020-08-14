@@ -3,7 +3,7 @@
 #include "WindowV2.h"
 #include "RectangleShapeV1.h"
 #include "VertexArrayV1.h"
-#include "RendererV1.h"
+#include "RendererV2.h"
 #include "EventsV2.h"
 
 using namespace std;
@@ -17,7 +17,7 @@ namespace transformsDemo1
 
 		v1::RectangleShape rectangle(1);
 		
-		v1::Renderer renderer;
+		v2::Renderer renderer;
 		// Transform transform;
 
 		while (window.isOpen())
