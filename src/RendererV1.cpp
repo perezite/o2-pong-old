@@ -1,5 +1,5 @@
 #include "RendererV1.h"
-#include "ShaderV2.h"
+#include "ShaderV3.h"
 #include "WindowV2.h"
 #include "GLV1.h"
 #include "ErrorV1.h"
@@ -20,15 +20,22 @@ namespace o2
 			}
 		}
 
-		void Renderer::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, v3::Shader* shader)
+		v3::Shader* Renderer::getDefaultShader()
 		{
+			ensureDefaultShader();
+
+			return &_defaultShader;
+		}
+
+		void Renderer::draw(const std::vector<Vertex>& vertices, PrimitiveType primitiveType, const DrawStates& drawStates)
+		{
+			v3::Shader *shader = drawStates.shader;
+
 			if (vertices.empty())
 				return;
 
-			ensureDefaultShader();
-
 			if (shader == NULL)
-				shader = &_defaultShader;
+				shader = getDefaultShader();
 
 			shader->setupDraw(vertices);
 

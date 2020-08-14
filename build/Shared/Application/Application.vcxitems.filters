@@ -183,8 +183,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.h">
       <Filter>Demos\01_Renderer\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\MathV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLObject.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\DrawStatesV1.h">
+      <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\MathV1.h">
       <Filter>Library\v1\Headers</Filter>
     </ClInclude>
   </ItemGroup>

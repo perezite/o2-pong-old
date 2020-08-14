@@ -24,6 +24,8 @@ namespace o2
 
 			inline v1::Vertex& getVertex(size_t index) { return _vertexArray[index]; }
 
+			inline v1::VertexArray& getVertexArray() { return _vertexArray; }
+
 			inline v1::Vertex& operator[](size_t index) { return getVertex(index); }
 
 			void draw(v2::Window& window);

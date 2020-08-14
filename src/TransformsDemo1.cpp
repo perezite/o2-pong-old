@@ -2,6 +2,8 @@
 #include "WindowV1.h"
 #include "WindowV2.h"
 #include "RectangleShapeV1.h"
+#include "VertexArrayV1.h"
+#include "RendererV1.h"
 #include "EventsV2.h"
 
 using namespace std;
@@ -14,8 +16,9 @@ namespace transformsDemo1
 		v2::Window window(v1::Vector2i(400, 400), "Pong");
 
 		v1::RectangleShape rectangle(1);
-
-		// rectangle.setPosition(-.5f);
+		
+		v1::Renderer renderer;
+		// Transform transform;
 
 		while (window.isOpen())
 		{
@@ -24,7 +27,8 @@ namespace transformsDemo1
 				window.close();
 
 			window.clear();
-			rectangle.draw(window);
+			v1::VertexArray& vertexArray = rectangle.getVertexArray();
+			renderer.draw(vertexArray.getVertices(), vertexArray.getPrimitiveType());
 			window.display();
 		}
 	}

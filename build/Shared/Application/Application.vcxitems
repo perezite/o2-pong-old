@@ -43,6 +43,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ColorV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawStatesV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV2.h" />
