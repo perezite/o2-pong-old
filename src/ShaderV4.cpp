@@ -190,9 +190,7 @@ namespace o2
 
 			setupVertexAttribute("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
 			setupVertexAttribute("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
-
-			float matrix[9] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
-			setUnformMatrix3("transform", matrix);
+			setUnformMatrix3("transform", &(drawStates.transform.getMatrix()[0]));
 		}
 
 		void Shader::cleanupDraw()

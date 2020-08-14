@@ -34,6 +34,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShaderV4.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ShapesDemo1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformsDemo1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />

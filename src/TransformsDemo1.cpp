@@ -5,6 +5,7 @@
 #include "VertexArrayV1.h"
 #include "RendererV2.h"
 #include "EventsV2.h"
+#include "TransformV1.h"
 
 using namespace std;
 using namespace o2;
@@ -18,7 +19,8 @@ namespace transformsDemo1
 		v1::RectangleShape rectangle(1);
 		
 		v2::Renderer renderer;
-		// Transform transform;
+		v1::Transform transform;
+		transform.translate(.1f, .45f);
 
 		while (window.isOpen())
 		{
@@ -28,7 +30,7 @@ namespace transformsDemo1
 
 			window.clear();
 			v1::VertexArray& vertexArray = rectangle.getVertexArray();
-			renderer.draw(vertexArray.getVertices(), vertexArray.getPrimitiveType());
+			renderer.draw(vertexArray.getVertices(), vertexArray.getPrimitiveType(), transform);
 			window.display();
 		}
 	}
