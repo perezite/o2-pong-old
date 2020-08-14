@@ -1,6 +1,8 @@
 #include "TransformV1.h"
+#include "MathV1.h"
 
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -46,6 +48,17 @@ namespace o2
 				0, 0, 1);
 
 			return apply(translation);
+		}
+		const Transform & Transform::rotate(float degrees)
+		{
+			float rad = degrees * math::ToRadian;
+
+			Transform rotation(
+				cosf(rad),	-sinf(rad),		0,
+				sinf(rad),	 cosf(rad),		0,
+				0,			 0,				1);
+
+			return apply(rotation);
 		}
 	}
 }

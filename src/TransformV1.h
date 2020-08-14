@@ -25,6 +25,8 @@ namespace o2
 			const Transform& translate(const Vector2f& offset);
 
 			const inline Transform& translate(float x, float y) { return translate(v1::Vector2f(x, y)); }
+
+			const Transform& rotate(float degrees);
 		};
 	}
 }

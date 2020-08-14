@@ -20,6 +20,7 @@ namespace transformsDemo1
 		
 		v2::Renderer renderer;
 		v1::Transform transform;
+		transform.rotate(30);
 		transform.translate(.1f, .45f);
 
 		while (window.isOpen())
