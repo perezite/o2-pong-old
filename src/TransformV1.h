@@ -13,10 +13,12 @@ namespace o2
 			std::vector<float> _matrix;
 
 		public:
+            Transform(const Vector2f& position = Vector2f(0), float degrees = 0, const Vector2f& scale = Vector2f(1));
+
 			Transform(	
-				float a00 = 1, float a01 = 0, float a02 = 0,
-				float a10 = 0, float a11 = 1, float a12 = 0,
-				float a20 = 0, float a21 = 0, float a22 = 1);
+				float a00, float a01, float a02,
+				float a10, float a11, float a12,
+				float a20, float a21, float a22);
 
 			inline const std::vector<float> getMatrix() const { return _matrix; }
 
@@ -24,9 +26,13 @@ namespace o2
 
 			const Transform& translate(const Vector2f& offset);
 
-			const inline Transform& translate(float x, float y) { return translate(v1::Vector2f(x, y)); }
+            inline const Transform& translate(float x, float y) { return translate(v1::Vector2f(x, y)); }
 
-			const Transform& rotate(float degrees);
+            const Transform& rotate(float degrees);
+
+            const Transform& scale(const Vector2f& scaling);
+
+            inline const Transform& scale(float x, float y) { return scale(v1::Vector2f(x, y)); }
 		};
 	}
 }

@@ -6,12 +6,13 @@
 #include "DrawableV1.h"
 #include "PrimitiveTypeV1.h"
 #include "VertexArrayV1.h"
+#include "TransformableV1.h"
 
 namespace o2
 {
 	namespace v1
 	{
-		class ConvexShape : public Drawable
+		class ConvexShape : public Drawable, public Transformable
 		{
 			VertexArray _vertexArray;
 

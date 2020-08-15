@@ -21,26 +21,37 @@ namespace o2
 			_matrix[2] = a20; _matrix[5] = a21; _matrix[8] = a22;
 		}
 
-		const Transform & Transform::apply(const Transform & transform)
+        Transform::Transform(const Vector2f& position, float degrees, const Vector2f& scale)
+            : _matrix(9)
+        {
+            float rad = degrees * math::ToRadian;
+            float c = cosf(rad);
+            float s = sinf(rad);
+
+            _matrix[0] = c * scale.x;	_matrix[3] = -s * scale.y;	_matrix[6] = position.x;
+            _matrix[1] = s * scale.x;	_matrix[4] =  c * scale.y;	_matrix[7] = position.y;
+            _matrix[2] = 0;			    _matrix[5] =  0;			_matrix[8] = 1;
+        }
+
+		const Transform& Transform::apply(const Transform & transform)
 		{
-			const vector<float>& a = _matrix;
+			const vector<float> a = _matrix;
 			const vector<float>& b = transform.getMatrix();
 
-			*this = Transform(
-				a[0] * b[0] + a[3] * b[1] + a[6] * b[2],
-				a[0] * b[3] + a[3] * b[4] + a[6] * b[5],
-				a[0] * b[6] + a[3] * b[7] + a[6] * b[8],
-				a[1] * b[0] + a[4] * b[1] + a[7] * b[2],
-				a[1] * b[3] + a[4] * b[4] + a[7] * b[5],
-				a[1] * b[6] + a[4] * b[7] + a[7] * b[8],
-				a[2] * b[0] + a[5] * b[1] + a[8] * b[2],
-				a[2] * b[3] + a[5] * b[4] + a[8] * b[5],
-				a[2] * b[6] + a[5] * b[7] + a[8] * b[8]);
+            _matrix[0] = a[0] * b[0] + a[3] * b[1] + a[6] * b[2];
+            _matrix[1] = a[1] * b[0] + a[4] * b[1] + a[7] * b[2];
+            _matrix[2] = a[2] * b[0] + a[5] * b[1] + a[8] * b[2];
+            _matrix[3] = a[0] * b[3] + a[3] * b[4] + a[6] * b[5];
+            _matrix[4] = a[1] * b[3] + a[4] * b[4] + a[7] * b[5];
+            _matrix[5] = a[2] * b[3] + a[5] * b[4] + a[8] * b[5];
+            _matrix[6] = a[0] * b[6] + a[3] * b[7] + a[6] * b[8];
+            _matrix[7] = a[1] * b[6] + a[4] * b[7] + a[7] * b[8];
+            _matrix[8] = a[2] * b[6] + a[5] * b[7] + a[8] * b[8];
 
 			return *this;
 		}
 
-		const Transform& Transform::translate(const Vector2f & offset)
+		const Transform& Transform::translate(const Vector2f& offset)
 		{
 			Transform translation(
 				1, 0, offset.x,
@@ -49,16 +60,29 @@ namespace o2
 
 			return apply(translation);
 		}
-		const Transform & Transform::rotate(float degrees)
+
+		const Transform& Transform::rotate(float degrees)
 		{
 			float rad = degrees * math::ToRadian;
+            float c = cosf(rad);
+            float s = sinf(rad);
 
 			Transform rotation(
-				cosf(rad),	-sinf(rad),		0,
-				sinf(rad),	 cosf(rad),		0,
-				0,			 0,				1);
+				c, -s, 0,
+				s,	c, 0,
+				0,	0, 1);
 
 			return apply(rotation);
 		}
+
+        const Transform & Transform::scale(const Vector2f& scaling)
+        {
+            Transform scaleTransform(
+                scaling.x,  0,          0,
+                0,          scaling.y,  0,
+                0,          0,          1);
+
+            return apply(scaleTransform);
+        }
 	}
 }

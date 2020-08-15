@@ -11,6 +11,10 @@ namespace o2
 		{
 		public:
 			RectangleShape(const Vector2f& size = Vector2f(1, 1));
+
+            inline RectangleShape(float x, float y)
+                : RectangleShape(Vector2f(x, y))
+            { }
 		};
 	}
 }
