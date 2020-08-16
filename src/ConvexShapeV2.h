@@ -3,34 +3,33 @@
 #include "WindowV2.h"
 #include "VertexV1.h"
 #include "ColorV1.h"
-#include "DrawableV1.h"
+#include "DrawableV2.h"
 #include "PrimitiveTypeV1.h"
-#include "VertexArrayV1.h"
+#include "VertexArrayV2.h"
 #include "TransformableV1.h"
-#include "DrawStatesV1.h"
 
 namespace o2
 {
-	namespace v1
+	namespace v2
 	{
-		class ConvexShape : public Drawable, public Transformable
+		class ConvexShape : public v2::Drawable, public v1::Transformable
 		{
 			VertexArray _vertexArray;
 
 		public:
 			ConvexShape(size_t numVertices)
-				: _vertexArray(numVertices, PrimitiveType::TriangleFan)
+				: _vertexArray(numVertices, v1::PrimitiveType::TriangleFan)
 			{ }
 
 			void setColor(const v1::Color& color);
 
 			inline v1::Vertex& getVertex(size_t index) { return _vertexArray[index]; }
 
-			inline VertexArray& getVertexArray() { return _vertexArray; }
+			inline v2::VertexArray& getVertexArray() { return _vertexArray; }
 
 			inline v1::Vertex& operator[](size_t index) { return getVertex(index); }
 
-			void draw(v2::Window& window, DrawStates drawStates = DrawStates());
+			void draw(v3::Window& window, v1::DrawStates drawStates = v1::DrawStates());
 		};
 	}
 }

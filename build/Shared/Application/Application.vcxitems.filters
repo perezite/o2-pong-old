@@ -127,6 +127,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV3.cpp">
       <Filter>Library\v3</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
@@ -233,6 +242,18 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV3.h">
       <Filter>Library\v3\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV2.h">
+      <Filter>Library\v2\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV2.h">
+      <Filter>Library\v2\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV2.h">
+      <Filter>Library\v2\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV2.h">
+      <Filter>Library\v2\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

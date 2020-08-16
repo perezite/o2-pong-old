@@ -34,5 +34,9 @@ namespace o2
 
             inline const Transform& scale(float x, float y) { return scale(v1::Vector2f(x, y)); }
 		};
+
+        Transform operator*(Transform& left, const Transform& right);
+
+        Transform& operator*=(Transform& left, const Transform& right);
 	}
 }

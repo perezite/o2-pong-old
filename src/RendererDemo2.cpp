@@ -4,6 +4,7 @@
 #include "ShaderV3.h"
 #include "EventsV2.h"
 #include "VertexArrayV1.h"
+#include "RendererV1.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -266,7 +267,7 @@ namespace rendererDemo2
 
 			window.clear();
 
-			 triangle.draw(window);
+			triangle.draw(window);
 
 			window.display();
 		}

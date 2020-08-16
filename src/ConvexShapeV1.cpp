@@ -10,7 +10,7 @@ namespace o2
 				_vertexArray[i].color = color;
 		}
 
-		void ConvexShape::draw(v2::Window & window)
+		void ConvexShape::draw(v2::Window& window, DrawStates drawStates)
 		{
 			_vertexArray.draw(window);
 		}

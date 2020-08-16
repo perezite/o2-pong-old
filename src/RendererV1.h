@@ -8,7 +8,7 @@
 
 namespace o2
 {
-	namespace v2
+	namespace v1
 	{
 		class Window;
 	}

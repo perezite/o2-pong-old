@@ -84,5 +84,16 @@ namespace o2
 
             return apply(scaleTransform);
         }
-	}
+
+        Transform operator*(Transform& left, const Transform& right)
+        {
+            return left.apply(right);
+        }
+
+        Transform & operator*=(Transform& left, const Transform& right)
+        {
+            left.apply(right);
+            return left;
+        }
+    }
 }

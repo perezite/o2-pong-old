@@ -17,6 +17,7 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV2.cpp" />
@@ -24,6 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo1.cpp" />
@@ -38,6 +40,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformsDemo1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\Main.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowDemo1.cpp" />
@@ -48,7 +51,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ColorV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ConvexShapeV2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawableV2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\DrawStatesV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ErrorV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\EventsV1.h" />
@@ -59,6 +64,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\MathV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\PrimitiveTypeV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RectangleShapeV2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\RendererDemo1.h" />
@@ -75,6 +81,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\TransformV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\Vector2V1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexArrayV2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\VertexV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowDemo1.h" />

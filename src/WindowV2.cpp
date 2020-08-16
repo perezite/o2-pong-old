@@ -2,6 +2,7 @@
 #include "ErrorV1.h"
 #include "SDLV1.h"
 #include "GLV1.h"
+#include "DrawStatesV1.h"
 
 namespace o2
 {

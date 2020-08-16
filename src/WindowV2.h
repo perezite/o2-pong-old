@@ -6,6 +6,7 @@
 #include "PrimitiveTypeV1.h"
 #include "RendererV1.h"
 #include "ShaderV3.h"
+#include "DrawStatesV1.h"
 
 #include <SDL2/SDL.h>
 #include <string>

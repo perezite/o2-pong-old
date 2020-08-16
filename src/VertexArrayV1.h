@@ -30,7 +30,7 @@ namespace o2
 
 			inline Vertex& operator[] (size_t index) { return _vertices[index]; }
 
-			virtual void draw(v2::Window& window);
+			virtual void draw(v2::Window& window, DrawStates drawStates = DrawStates());
 		};
 	}
 }
