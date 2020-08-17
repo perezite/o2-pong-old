@@ -90,7 +90,6 @@ namespace transformsDemo1
     {
         v3::Window window(v1::Vector2i(400, 400), "Pong");
         v1::RectangleShape rectangle(.3f);
-        v2::Renderer renderer;
 
         rectangle.setPosition(.5f, 0);
         rectangle.setRotation(45);
@@ -131,9 +130,52 @@ namespace transformsDemo1
         }
     }
     
+    void demo5()
+    {
+        v3::Window window(v1::Vector2i(400, 400), "Pong");
+        v2::RectangleShape rectangle(.3f);
+        v1::Transform transform;
+
+        rectangle.setPosition(0, .5f);
+        transform.translate(.5f, 0);
+
+        while (window.isOpen())
+        {
+            v3::Events::update();
+            if (v3::Events::hasCloseRequest(window))
+                window.close();
+
+            window.clear();
+            rectangle.draw(window, transform);
+            window.display();
+        }
+    }
+
+    void demo6()
+    {
+        v3::Window window(v1::Vector2i(400, 400), "Pong");
+        v2::RectangleShape rectangle(.3f);
+        // v1::Clock clock;
+
+        while (window.isOpen())
+        {
+            v3::Events::update();
+            if (v3::Events::hasCloseRequest(window))
+                window.close();
+
+            // rectangle.setRotation(clock.getElapsedTime().asSeconds());
+
+            window.clear();
+            rectangle.draw(window);
+            window.display();
+        }
+    }
+
     void run()
     {
-        demo4();
+        demo6();
+        //demo5();
+        //demo4();
         //demo3();
         // demo2();
         //demo1();
