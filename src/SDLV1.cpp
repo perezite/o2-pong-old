@@ -33,7 +33,7 @@ namespace o2
 			if (imgResult != flags) error(IMG_GetError());
 
 			#ifdef WIN32
-				setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+				setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 				setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 				setGlAttribute(SDL_GL_DOUBLEBUFFER, 1);
 				setGlAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
