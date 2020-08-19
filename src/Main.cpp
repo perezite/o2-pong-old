@@ -3,7 +3,6 @@
 #include "RendererDemo2.h"
 #include "ShapesDemo1.h"
 #include "TransformsDemo1.h"
-#include "../docs/NonVirtualEcs.cpp"
 
 #include <iostream>
 
@@ -15,9 +14,7 @@ int main()
 	//rendererDemo1::run();
 	//rendererDemo2::run();
 	//shapesDemo1::run();
-	//transformsDemo1::run();
-
-    nonVirtualEcs::run();
+	transformsDemo1::run();
 
 	cout << "done..." << endl;
 	cin.get();
