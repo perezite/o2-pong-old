@@ -139,6 +139,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ClockV1.cpp">
       <Filter>Library\v1</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV2.cpp">
+      <Filter>Library\v2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
@@ -263,6 +266,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\TimeV1.h">
       <Filter>Library\v1\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV2.h">
+      <Filter>Library\v2\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

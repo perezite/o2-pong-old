@@ -4,6 +4,7 @@
 #include "WindowV3.h"
 #include "RectangleShapeV1.h"
 #include "RectangleShapeV2.h"
+#include "CircleShapeV2.h"
 #include "VertexArrayV1.h"
 #include "RendererV2.h"
 #include "EventsV2.h"
@@ -165,9 +166,7 @@ namespace transformsDemo1
             if (v3::Events::hasCloseRequest(window))
                 window.close();
 
-            auto test = clock.getElapsedTime();
-            auto test2 = test.asSeconds();
-            rectangle.setRotation(clock.getElapsedTime().asSeconds() * v1::math::ToDegrees * 3);
+            rectangle.setRotation(clock.getElapsedTime().asSeconds() * v1::math::ToDegrees * 2);
 
             window.clear();
             rectangle.draw(window);
@@ -175,13 +174,39 @@ namespace transformsDemo1
         }
     }
 
+    void demo7()
+    {
+        v3::Window window(v1::Vector2i(400, 400), "Pong");
+        v2::RectangleShape leftPaddle(.1f, .5f);
+        v2::RectangleShape rightPaddle(.1f, .5f);
+        v2::CircleShape ball(30);
+
+        leftPaddle.setPosition(-.85f, 0);
+        rightPaddle.setPosition( .85f, 0);
+        ball.setScale(.061f);
+
+        while (window.isOpen())
+        {
+            v3::Events::update();
+            if (v3::Events::hasCloseRequest(window))
+                window.close();
+
+            window.clear();
+            leftPaddle.draw(window);
+            rightPaddle.draw(window);
+            ball.draw(window);
+            window.display();
+        }
+    }
+
     void run()
     {
-        demo6();
+        demo7();
+        //demo6();
         //demo5();
         //demo4();
         //demo3();
-        // demo2();
+        //demo2();
         //demo1();
         //demo0();
     }
