@@ -24,6 +24,8 @@ namespace o2
 			const float Pi = (float)M_PI;
 
 			const float ToRadian = Pi / 180;
+
+            const float ToDegrees = 180 / Pi;
 		}
 	}
 }

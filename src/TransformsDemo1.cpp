@@ -9,35 +9,37 @@
 #include "EventsV2.h"
 #include "EventsV3.h"
 #include "TransformV1.h"
+#include "ClockV1.h"
+#include "MathV1.h"
 
 using namespace std;
 using namespace o2;
 
 namespace transformsDemo1
 {
-	void demo0()
-	{
-		v2::Window window(v1::Vector2i(400, 400), "Pong");
-		v1::RectangleShape rectangle(1);
-		v2::Renderer renderer;
-		v1::Transform transform;
+    void demo0()
+    {
+        v2::Window window(v1::Vector2i(400, 400), "Pong");
+        v1::RectangleShape rectangle(1);
+        v2::Renderer renderer;
+        v1::Transform transform;
 
-		
-		transform.rotate(30);
-		transform.translate(.1f, .45f);
+        
+        transform.rotate(30);
+        transform.translate(.1f, .45f);
 
-		while (window.isOpen())
-		{
-			v2::Events::update();
-			if (v2::Events::hasCloseRequest(window))
-				window.close();
+        while (window.isOpen())
+        {
+            v2::Events::update();
+            if (v2::Events::hasCloseRequest(window))
+                window.close();
 
-			window.clear();
-			v1::VertexArray& vertexArray = rectangle.getVertexArray();
-			renderer.draw(vertexArray.getVertices(), vertexArray.getPrimitiveType(), transform);
-			window.display();
-		}
-	}
+            window.clear();
+            v1::VertexArray& vertexArray = rectangle.getVertexArray();
+            renderer.draw(vertexArray.getVertices(), vertexArray.getPrimitiveType(), transform);
+            window.display();
+        }
+    }
 
     void demo1()
     {
@@ -155,7 +157,7 @@ namespace transformsDemo1
     {
         v3::Window window(v1::Vector2i(400, 400), "Pong");
         v2::RectangleShape rectangle(.3f);
-        // v1::Clock clock;
+        v1::Clock clock;
 
         while (window.isOpen())
         {
@@ -163,7 +165,9 @@ namespace transformsDemo1
             if (v3::Events::hasCloseRequest(window))
                 window.close();
 
-            // rectangle.setRotation(clock.getElapsedTime().asSeconds());
+            auto test = clock.getElapsedTime();
+            auto test2 = test.asSeconds();
+            rectangle.setRotation(clock.getElapsedTime().asSeconds() * v1::math::ToDegrees * 3);
 
             window.clear();
             rectangle.draw(window);
