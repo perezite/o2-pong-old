@@ -15,6 +15,8 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraV1.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraDemo1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\ClockV1.cpp" />
@@ -50,6 +52,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\WindowV3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraV1.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraDemo1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CircleShapeV2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\ClockV1.h" />

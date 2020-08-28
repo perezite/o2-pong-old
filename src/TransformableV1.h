@@ -21,7 +21,7 @@ namespace o2
 
         public:
             Transformable()
-                : _scale(1)
+                : _scale(1), _rotation(0), _mustUpdateTransform(true)
             { }
 
             void setPosition(const v1::Vector2f& position);

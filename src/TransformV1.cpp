@@ -8,18 +8,18 @@ using namespace std;
 
 namespace o2
 {
-	namespace v1
-	{
-		Transform::Transform(	
-			float a00, float a01, float a02,
-			float a10, float a11, float a12,
-			float a20, float a21, float a22)
-			: _matrix(9)
-		{
-			_matrix[0] = a00; _matrix[3] = a01; _matrix[6] = a02;
-			_matrix[1] = a10; _matrix[4] = a11; _matrix[7] = a12;
-			_matrix[2] = a20; _matrix[5] = a21; _matrix[8] = a22;
-		}
+    namespace v1
+    {
+        Transform::Transform(	
+            float a00, float a01, float a02,
+            float a10, float a11, float a12,
+            float a20, float a21, float a22)
+            : _matrix(9)
+        {
+            _matrix[0] = a00; _matrix[3] = a01; _matrix[6] = a02;
+            _matrix[1] = a10; _matrix[4] = a11; _matrix[7] = a12;
+            _matrix[2] = a20; _matrix[5] = a21; _matrix[8] = a22;
+        }
 
         Transform::Transform(const Vector2f& position, float degrees, const Vector2f& scale)
             : _matrix(9)
@@ -33,10 +33,10 @@ namespace o2
             _matrix[2] = 0;			    _matrix[5] =  0;			_matrix[8] = 1;
         }
 
-		const Transform& Transform::apply(const Transform & transform)
-		{
-			const vector<float> a = _matrix;
-			const vector<float>& b = transform.getMatrix();
+        const Transform& Transform::apply(const Transform & transform)
+        {
+            const vector<float> a = _matrix;
+            const vector<float>& b = transform.getMatrix();
 
             _matrix[0] = a[0] * b[0] + a[3] * b[1] + a[6] * b[2];
             _matrix[1] = a[1] * b[0] + a[4] * b[1] + a[7] * b[2];
@@ -48,32 +48,32 @@ namespace o2
             _matrix[7] = a[1] * b[6] + a[4] * b[7] + a[7] * b[8];
             _matrix[8] = a[2] * b[6] + a[5] * b[7] + a[8] * b[8];
 
-			return *this;
-		}
+            return *this;
+        }
 
-		const Transform& Transform::translate(const Vector2f& offset)
-		{
-			Transform translation(
-				1, 0, offset.x,
-				0, 1, offset.y,
-				0, 0, 1);
+        const Transform& Transform::translate(const Vector2f& offset)
+        {
+            Transform translation(
+                1, 0, offset.x,
+                0, 1, offset.y,
+                0, 0, 1);
 
-			return apply(translation);
-		}
+            return apply(translation);
+        }
 
-		const Transform& Transform::rotate(float degrees)
-		{
-			float rad = degrees * math::ToRadian;
+        const Transform& Transform::rotate(float degrees)
+        {
+            float rad = degrees * math::ToRadian;
             float c = cosf(rad);
             float s = sinf(rad);
 
-			Transform rotation(
-				c, -s, 0,
-				s,	c, 0,
-				0,	0, 1);
+            Transform rotation(
+                c, -s, 0,
+                s,	c, 0,
+                0,	0, 1);
 
-			return apply(rotation);
-		}
+            return apply(rotation);
+        }
 
         const Transform & Transform::scale(const Vector2f& scaling)
         {
