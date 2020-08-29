@@ -17,11 +17,9 @@ namespace cameraDemo1
         v3::Window window(v1::Vector2i(400, 400), "Pong");
         v2::RectangleShape rectangle(1);
         v1::Camera camera;
+        v2::Renderer renderer;
 
-        camera.setSize(100, 100);
-        // window.setCamera(camera);
-
-        auto test = v1::Transform();
+        camera.setSize(4, 2);
 
         while (window.isOpen())
         {
@@ -29,8 +27,8 @@ namespace cameraDemo1
             if (v3::Events::hasCloseRequest(window))
                 window.close();
 
-            window.clear();
-            rectangle.draw(window);           
+            window.clear();  
+            renderer.draw(rectangle.getVertexArray().getVertices(), rectangle.getVertexArray().getPrimitiveType(), camera);
             window.display();
         }
     }

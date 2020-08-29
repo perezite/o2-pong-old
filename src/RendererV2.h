@@ -9,22 +9,24 @@
 
 namespace o2
 {
-	namespace v2
-	{
-		class Window;
-	}
-	
-	namespace v2
-	{
-		class Renderer
-		{
-			v4::Shader _defaultShader;
+    namespace v2
+    {
+        class Window;
+    }
+    
+    namespace v2
+    {
+        class Renderer
+        {
+            v4::Shader _defaultShader;
 
-		protected:
-			v4::Shader* ensureDefaultShader();
+        protected:
+            v4::Shader* ensureDefaultShader();
 
-		public:
-			void draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, const v1::DrawStates& drawStates = v1::DrawStates());
-		};
-	}
+            void Renderer::setup(const std::vector<v1::Vertex>& vertices, v1::DrawStates& drawStates);
+
+        public:
+            void draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, v1::DrawStates drawStates = v1::DrawStates());
+        };
+    }
 }

@@ -148,9 +148,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraDemo1.cpp">
       <Filter>Demos\04_Camera</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\CameraV1.cpp">
-      <Filter>Library\v1</Filter>
-    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraV1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\GLV1.h">
@@ -282,8 +280,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraDemo1.h">
       <Filter>Demos\04_Camera</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Indie\Development\Simulo\o2-pong\build\Shared\Application\..\..\..\src\CameraV1.h">
-      <Filter>Library\v1\Headers</Filter>
-    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\src\CameraV1.h" />
   </ItemGroup>
 </Project>

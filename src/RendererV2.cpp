@@ -9,35 +9,41 @@ using namespace std;
 
 namespace o2
 {
-	namespace v2
-	{
-		v4::Shader* Renderer::ensureDefaultShader()
-		{
-			static bool loaded = false;
-			if (!loaded)
-			{
-				_defaultShader.loadDefaultShader();
-				loaded = true;
-			}
+    namespace v2
+    {
+        v4::Shader* Renderer::ensureDefaultShader()
+        {
+            static bool loaded = false;
+            if (!loaded)
+            {
+                _defaultShader.loadDefaultShader();
+                loaded = true;
+            }
 
-			return &_defaultShader;
-		}
+            return &_defaultShader;
+        }
 
-		void Renderer::draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, const v1::DrawStates& drawStates) 
-		{
-			v4::Shader *shader = drawStates.shader;
+        void Renderer::draw(const vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, v1::DrawStates drawStates)
+        {
+            if (vertices.empty())
+                return;
 
-			if (vertices.empty())
-				return;
+            setup(vertices, drawStates);
 
-			if (shader == NULL)
-				shader = ensureDefaultShader();
+            GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
 
-			shader->setupDraw(vertices, drawStates);
+            drawStates.shader->cleanupDraw();
+        }
 
-			GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
+        void Renderer::setup(const vector<v1::Vertex>& vertices, v1::DrawStates& drawStates)
+        {
+            if (drawStates.shader == NULL)
+                drawStates.shader = ensureDefaultShader();
 
-			shader->cleanupDraw();
-		}
-	}
+            if (drawStates.camera)
+                drawStates.transform *= drawStates.camera->getTransform();
+
+            drawStates.shader->setupDraw(vertices, drawStates);
+        }
+    }
 }
