@@ -36,6 +36,12 @@ namespace o2
             _mustUpdateTransform = true;
         }
 
+        void Camera::setRotation(float degrees)
+        {
+            _rotation = degrees;
+            _mustUpdateTransform = true;
+        }
+
         Transform & Camera::getTransform()
         {
             if (_mustUpdateTransform)

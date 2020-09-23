@@ -19,7 +19,7 @@ namespace cameraDemo1
         v1::Camera camera;
         v2::Renderer renderer;
 
-        camera.setSize(4, 2);
+        camera.setSize(2, 4);
 
         while (window.isOpen())
         {

@@ -120,7 +120,6 @@ namespace o2
 			return _uniformLocations[uniform];
 		}
 
-
 		inline void Shader::setupVertexAttribute(const string & attribute, GLint size, 
 			GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer)
 		{

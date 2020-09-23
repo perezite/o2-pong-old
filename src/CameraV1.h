@@ -18,7 +18,7 @@ namespace o2
             Transform _transform;
 
             bool _mustUpdateTransform;
-
+            
         protected:
             void updateTransform();
 
@@ -30,6 +30,8 @@ namespace o2
             void setSize(const Vector2f& size);
 
             inline void setSize(float x, float y) { setSize(Vector2f(x, y)); }
+
+            void setRotation(float degrees);
 
             Transform& getTransform();
         };
