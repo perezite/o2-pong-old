@@ -39,6 +39,32 @@ class VertexBufferView
 	float getVertex(size_t index) { return _vertexBuffer.getVertex(_start + index); }
 };
 
+class BaseVertexStorageProvider
+{
+public:
+	virtual void* createVertexStorage(size_t numIndices) const = 0;
+};
+
+template <class TStorage>
+class VertexStorageProvider : public BaseVertexStorageProvider
+{
+public:
+	void* createVertexStorage(size_t numIndices) const { return new TStorage(numIndices); }
+};
+
+template <class TStorage, class TArgument1>
+struct VertexStorageProvider2 : BaseVertexStorageProvider 
+{
+	TArgument1& _argument1;
+	
+public:
+	VertexStorageProvider2(TArgument1& argument1) 
+		: _argument1(argument1)
+	{ }
+	
+	void* createVertexStorage(size_t numIndices) const { return new TStorage(_argument1, numIndices); }
+};
+
 class Drawable 
 {
 public:
@@ -55,17 +81,44 @@ public:
 template <class TStorage>
 class Block : public Model<TStorage> 
 {
-	TStorage _storage;
+	TStorage* _storage;
 		
 public:
+	Block(const BaseVertexStorageProvider& vertexStorageProvider) 
+	{
+		_storage = (TStorage*)vertexStorageProvider.createVertexStorage(4);
+	}
+
+	virtual ~Block() 
+	{ 
+		if(_storage)
+			delete _storage;
+	}
+	
+	void test() 
+	{
+	}
+
 	virtual void draw() 
 	{
+		for (size_t i = 0; i < 4; i++) 
+		{
+			cout << _storage->getVertex(i) << " ";
+		}
 		
+		cout << endl;
 	}
 };
 
 int main() 
 {
-	Block<VertexArray> block1;
-	Block<VertexBufferView> block2;
+	VertexBuffer vertexBuffer;
+
+	// https://stackoverflow.com/questions/9492595/pass-temporary-object-with-standard-constructor
+	// Note: This sucks noodles
+	Block<VertexArray> block1((VertexStorageProvider<VertexArray>()));
+	Block<VertexBufferView> block2((VertexStorageProvider2<VertexBufferView, VertexBuffer>(vertexBuffer)));
+	
+	block1.draw();
+	block2.draw();
 }
