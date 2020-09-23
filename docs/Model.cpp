@@ -110,14 +110,26 @@ public:
 	}
 };
 
+template <class T>
+VertexStorageProvider<T> createVertexStorageProvider() 
+{
+	return VertexStorageProvider<T>();
+}
+
+template <class T, class U>
+VertexStorageProvider2<T, U> createVertexStorageProvider(U& arg) 
+{
+	return VertexStorageProvider2<T, U>(arg);
+}
+
 int main() 
 {
 	VertexBuffer vertexBuffer;
 
 	// https://stackoverflow.com/questions/9492595/pass-temporary-object-with-standard-constructor
 	// Note: This sucks noodles
-	Block<VertexArray> block1((VertexStorageProvider<VertexArray>()));
-	Block<VertexBufferView> block2((VertexStorageProvider2<VertexBufferView, VertexBuffer>(vertexBuffer)));
+	Block<VertexArray> block1(createVertexStorageProvider<VertexArray>());
+	Block<VertexBufferView> block2(createVertexStorageProvider<VertexBufferView, VertexBuffer>(vertexBuffer));
 	
 	block1.draw();
 	block2.draw();
