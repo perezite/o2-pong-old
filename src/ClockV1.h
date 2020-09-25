@@ -17,7 +17,7 @@ namespace o2
 
             void reset();
 
-            const Time Clock::getElapsedTime();
+            const Time getElapsedTime();
         };
     }
 }

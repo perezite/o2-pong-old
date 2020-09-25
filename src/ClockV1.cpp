@@ -16,7 +16,6 @@ namespace o2
 
         const Time Clock::getElapsedTime()
         {
-            auto test = SDL_GetTicks();
             return Time().fromMilliseconds(SDL_GetTicks() - _startTicks);
         }        
     }

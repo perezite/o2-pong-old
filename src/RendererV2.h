@@ -23,7 +23,7 @@ namespace o2
         protected:
             v4::Shader* ensureDefaultShader();
 
-            void Renderer::setup(const std::vector<v1::Vertex>& vertices, v1::DrawStates& drawStates);
+            void setup(const std::vector<v1::Vertex>& vertices, v1::DrawStates& drawStates);
 
         public:
             void draw(const std::vector<v1::Vertex>& vertices, v1::PrimitiveType primitiveType, v1::DrawStates drawStates = v1::DrawStates());
