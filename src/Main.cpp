@@ -15,8 +15,8 @@ int main()
     //rendererDemo1::run();
     //rendererDemo2::run();
     //shapesDemo1::run();
-    //transformsDemo1::run();
-    cameraDemo1::run();
+    transformsDemo1::run();
+    //cameraDemo1::run();
 
     cout << "done..." << endl;
     cin.get();
