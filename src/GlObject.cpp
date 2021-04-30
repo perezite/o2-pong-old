@@ -1,4 +1,4 @@
-#include "GLObject.h"
+#include "GlObject.h"
 #include "SDLV1.h"
 
 #include <iostream>
@@ -9,10 +9,10 @@ namespace o2
 {
 	namespace v1
 	{
-		GLObject::GLObject()
+		GlObject::GlObject()
 		{
 			if (!SDL::hasActiveGlContext())
-				error() << "Trying to create an object which requires an active OpenGL context, but no such cnotext present" << endl;
+				error() << "Trying to create an object which requires an active OpenGL context, but no such context is present" << endl;
 		}
 	}
 }
