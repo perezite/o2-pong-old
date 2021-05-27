@@ -32,7 +32,7 @@ namespace o2
 
 		bool Events::hasCloseRequest(const v3::Window& window)
 		{
-			return v1::stl::has_any(_closeEvents, window.getSdlWindowId());
+			return v1::stl::any(_closeEvents, window.getSdlWindowId());
 		}
 	}
 }

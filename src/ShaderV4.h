@@ -30,24 +30,15 @@ namespace o2
 			std::map<std::string, GLuint> _uniformLocations;
 
 		protected:
-			GLuint loadShader(const std::string& shaderCode, GLenum shaderType);
+			GLuint initShaderCode(const std::string& shaderCode, GLenum shaderType);
 
-			void compileShader(GLuint shader);
+			void compile(GLuint shader);
 
 			void linkProgram();
-
-			void useShader();
 
 			GLint getAttributeLocation(std::string attribute);
 
 			GLint getUniformLocation(std::string uniform);
-
-			void setupVertexAttribute(const std::string& attribute, GLint size, 
-				GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer);
-
-			void cleanupVertexAttribute(const std::string& attribute);
-
-			void setUnformMatrix3(std::string uniformName, const float* matrix3);
 
 			void release();
 
@@ -62,12 +53,16 @@ namespace o2
 
 			void loadFromMemory(const std::string& vertexShaderCode, const std::string& fragmentShaderCode);
 
-			void loadDefaultShader();
+			void loadDefault();
 
-			void setupDraw(const std::vector<v1::Vertex>& vertices, const v1::DrawStates& states);
+			void setUniformMatrix3(std::string uniformName, const float* matrix3);
 
-			void cleanupDraw();
+			void enableVertexAttribute(const std::string& attribute, GLint size, 
+				GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer);
 
+			void disableVertexAttribute(const std::string& attribute);
+			
+			void use();
 		};
 	}
 }

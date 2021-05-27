@@ -37,7 +37,7 @@ namespace o2
 				"}																\n";
 		}
 
-		void Shader::compileShader(GLuint shader)
+		void Shader::compile(GLuint shader)
 		{
 			GLint compiled;
 
@@ -87,11 +87,6 @@ namespace o2
 			}
 		}
 
-		inline void Shader::useShader()
-		{
-			GL_CHECK(glUseProgram(getGlShaderProgram()));
-		}
-
 		GLint Shader::getAttributeLocation(std::string attribute)
 		{
 			if (_attributeLocations.find(attribute) == _attributeLocations.end())
@@ -120,26 +115,6 @@ namespace o2
 			return _uniformLocations[uniform];
 		}
 
-		inline void Shader::setupVertexAttribute(const string & attribute, GLint size, 
-			GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer)
-		{
-			GLuint location = getAttributeLocation(attribute);
-			GL_CHECK(glVertexAttribPointer(location, size, type, normalized, stride, pointer));
-			GL_CHECK(glEnableVertexAttribArray(location));
-		}
-
-		inline void Shader::cleanupVertexAttribute(const std::string& attribute)
-		{
-			GLuint attributeLocation = getAttributeLocation(attribute);
-			GL_CHECK(glDisableVertexAttribArray(attributeLocation));
-		}
-
-		void Shader::setUnformMatrix3(std::string uniform, const float* matrix3)
-		{
-			GLuint location = getUniformLocation(uniform);
-			GL_CHECK(glUniformMatrix3fv(location, 1, GL_FALSE, matrix3));
-		}
-
 		void Shader::release()
 		{
 			if (_fragmentShader)
@@ -150,7 +125,7 @@ namespace o2
 				GL_CHECK(glDeleteProgram(_shaderProgram));
 		}
 
-		GLuint Shader::loadShader(const std::string & shaderCode, GLenum shaderType)
+		GLuint Shader::initShaderCode(const std::string& shaderCode, GLenum shaderType)
 		{
 			GLuint shader;
 			GL_CHECK(shader = glCreateShader(shaderType));
@@ -158,7 +133,7 @@ namespace o2
 			const char* rawShaderSource = shaderCode.c_str();
 			GL_CHECK(glShaderSource(shader, 1, &rawShaderSource, NULL));
 
-			compileShader(shader);
+			compile(shader);
 
 			return shader;
 		}
@@ -169,8 +144,8 @@ namespace o2
 
 			GL_CHECK(_shaderProgram = glCreateProgram());
 
-			_vertexShader = loadShader(vertexShaderCode, GL_VERTEX_SHADER);
-			_fragmentShader = loadShader(fragmentShaderCode, GL_FRAGMENT_SHADER);
+			_vertexShader = initShaderCode(vertexShaderCode, GL_VERTEX_SHADER);
+			_fragmentShader = initShaderCode(fragmentShaderCode, GL_FRAGMENT_SHADER);
 
 			GL_CHECK(glAttachShader(_shaderProgram, _vertexShader));
 			GL_CHECK(glAttachShader(_shaderProgram, _fragmentShader));
@@ -178,24 +153,34 @@ namespace o2
 			linkProgram();
 		}
 
-		void Shader::loadDefaultShader()
+		void Shader::loadDefault()
 		{
 			loadFromMemory(DefaultVertexShaderCode, DefaultFragmentShaderCode);
 		}
 
-		void Shader::setupDraw(const std::vector<v1::Vertex>& vertices, const v1::DrawStates& drawStates)
+		void Shader::setUniformMatrix3(std::string uniform, const float* matrix3)
 		{
-			useShader();
-
-			setupVertexAttribute("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
-			setupVertexAttribute("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
-			setUnformMatrix3("transform", &(drawStates.transform.getMatrix()[0]));
+			GLuint location = getUniformLocation(uniform);
+			GL_CHECK(glUniformMatrix3fv(location, 1, GL_FALSE, matrix3));
 		}
 
-		void Shader::cleanupDraw()
+		void Shader::enableVertexAttribute(const string& attribute, GLint size,
+			GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer)
 		{
-			cleanupVertexAttribute("color");
-			cleanupVertexAttribute("position");
+			GLuint location = getAttributeLocation(attribute);
+			GL_CHECK(glVertexAttribPointer(location, size, type, normalized, stride, pointer));
+			GL_CHECK(glEnableVertexAttribArray(location));
+		}
+
+		void Shader::disableVertexAttribute(const std::string& attribute)
+		{
+			GLuint attributeLocation = getAttributeLocation(attribute);
+			GL_CHECK(glDisableVertexAttribArray(attributeLocation));
+		}
+
+		void Shader::use()
+		{
+			GL_CHECK(glUseProgram(getGlShaderProgram()));
 		}
 	}
 }

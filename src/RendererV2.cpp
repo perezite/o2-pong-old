@@ -16,7 +16,7 @@ namespace o2
             static bool loaded = false;
             if (!loaded)
             {
-                _defaultShader.loadDefaultShader();
+                _defaultShader.loadDefault();
                 loaded = true;
             }
 
@@ -32,7 +32,7 @@ namespace o2
 
             GL_CHECK(glDrawArrays((GLenum)primitiveType, 0, vertices.size()));
 
-            drawStates.shader->cleanupDraw();
+            cleanupShader(drawStates.shader);
         }
 
         void Renderer::setup(const vector<v1::Vertex>& vertices, v1::DrawStates& drawStates)
@@ -43,7 +43,21 @@ namespace o2
             if (drawStates.camera)
                 drawStates.transform *= drawStates.camera->getTransform();
 
-            drawStates.shader->setupDraw(vertices, drawStates);
+            setupShader(vertices, drawStates.shader, drawStates);
+        }
+
+        void Renderer::setupShader(const std::vector<v1::Vertex>& vertices, v4::Shader* shader, v1::DrawStates& drawStates)
+        {
+            shader->use();
+            shader->enableVertexAttribute("position", 2, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].position));
+            shader->enableVertexAttribute("color", 4, GL_FLOAT, GL_FALSE, sizeof(v1::Vertex), &(vertices[0].color));
+            shader->setUniformMatrix3("transform", &(drawStates.transform.getMatrix()[0]));
+        }
+
+        void Renderer::cleanupShader(v4::Shader* shader)
+        {
+            shader->disableVertexAttribute("color");
+            shader->disableVertexAttribute("position");
         }
     }
 }
